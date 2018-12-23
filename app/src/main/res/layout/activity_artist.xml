@@ -7,28 +7,38 @@
         android:layout_height="match_parent"
         tools:context=".activities.info.ArtistActivity">
 
-    <android.support.design.widget.AppBarLayout
-            android:layout_height="wrap_content"
+    <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+    <!--<android.support.design.widget.AppBarLayout-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:theme="@style/AppTheme.AppBarOverlay">-->
 
-    </android.support.design.widget.AppBarLayout>
+        <!--<android.support.v7.widget.Toolbar-->
+                <!--android:id="@+id/toolbar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="?attr/actionBarSize"-->
+                <!--android:background="?attr/colorPrimary"-->
+                <!--app:popupTheme="@style/AppTheme.PopupOverlay"/>-->
 
-    <include layout="@layout/content_artist"/>
+    <!--</android.support.design.widget.AppBarLayout>-->
 
-    <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
+         <include
+                android:id="@+id/content_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/content_header"
+              />
+
+            <include layout="@layout/content_artist"/>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
