@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".activities.main.fragment.mypage.MyPageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+        <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="15.7dp"
+                android:layout_marginRight="15.7dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-</FrameLayout>
+            <TextView
+                    android:text="내가 구독한 아티스트"
+                    android:textSize="17sp"
+                    android:textColor="#010101"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="9dp"
+                    android:background="#9e9e9f"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_follow"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                    android:layout_marginTop="55.7dp"
+                    android:text="내 티켓"
+                    android:textSize="17sp"
+                    android:textColor="#010101"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="9dp"
+                    android:background="#9e9e9f"/>
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_ticket"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+            <TextView
+                    android:text="전체보기"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="6.8dp"
+                    android:layout_marginLeft="304.8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+</RelativeLayout>
