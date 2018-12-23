@@ -1,19 +1,36 @@
 package concertrip.sopt.com.concertrip.list.adapter
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import concertrip.sopt.com.concertrip.list.viewholder.TicketViewHolder
+import android.widget.Toast
+import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.list.viewholder.ArtistViewHolder
+import concertrip.sopt.com.concertrip.model.Artist
+import org.jetbrains.anko.toast
 
-class ArtistListAdapter : RecyclerView.Adapter<TicketViewHolder>(){
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): TicketViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+class ArtistListAdapter(var mContext : Context, var dataList: ArrayList<Artist>) : RecyclerView.Adapter<ArtistViewHolder>(){
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
+
+        val mainView: View = LayoutInflater.from(parent.context).inflate(R.layout.li_artist, parent, false)
+        return ArtistViewHolder(mainView)
     }
 
-    override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getItemViewType(position: Int): Int =  position
+
+    override fun getItemCount(): Int = dataList.size;
+
+    override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
+        val artist = dataList[position]
+        holder.tvArtist.text=artist.name
+        holder.tvTag.text=artist.getTag()
+
+        holder.btnFollow.setOnClickListener {
+
+        }
     }
 
-    override fun onBindViewHolder(p0: TicketViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 }
