@@ -9,4 +9,6 @@
         tools:showIn="@layout/activity_artist"
         tools:context=".activities.info.ArtistActivity">
 
+
+
 </android.support.constraint.ConstraintLayout>
