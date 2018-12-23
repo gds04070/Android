@@ -1,14 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
+              android:orientation="vertical"
              android:layout_height="match_parent"
              tools:context=".activity.main.fragment.search.SearchFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+            android:id="@+id/search_bar"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="#b4b4b5"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="35dp"/>
 
-</FrameLayout>
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:nestedScrollingEnabled="false"
+                >
+            <TextView
+                    android:text="상황별"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:lineSpacingExtra="9sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/ly_station"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+            <TextView
+                    android:id="@+id/btn_more_station"
+                    android:text="전체보기"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="6.8dp"
+                    android:layout_marginLeft="304.8dp"
+                    android:lineSpacingExtra="6sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="9dp"
+                    android:background="#9e9e9f"/>
+            <TextView
+                    android:text="장르별"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_marginTop="28.3dp"
+                    android:lineSpacingExtra="9sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/ly_genre"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+            <TextView
+                    android:id="@+id/btn_more_genre"
+                    android:text="전체보기"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="6.8dp"
+                    android:layout_marginLeft="304.8dp"
+                    android:lineSpacingExtra="6sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
