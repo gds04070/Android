@@ -1,4 +1,4 @@
-package concertrip.sopt.com.concertrip.activities.main.fragment.ticket
+package concertrip.sopt.com.concertrip.activities.main.fragment.mypage.ticket
 
 import android.content.Context
 import android.net.Uri
