@@ -37,7 +37,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="18dp"/>
             </LinearLayout>
-            <ImageView
+            <ImageButton
                     android:id="@+id/btn_like"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
