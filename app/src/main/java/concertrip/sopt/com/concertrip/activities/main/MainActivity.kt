@@ -10,7 +10,6 @@ import android.view.MenuItem
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.adapter.MainTabAdapter
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
-import concertrip.sopt.com.concertrip.activity.main.fragment.calendar.CalendarFragment
 import concertrip.sopt.com.concertrip.utillity.Constatns
 
 import kotlinx.android.synthetic.main.activity_main.*

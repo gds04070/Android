@@ -4,8 +4,6 @@ import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions;
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.R.id.parent
 import concertrip.sopt.com.concertrip.list.viewholder.ArtistThumbViewHolder
@@ -21,7 +19,7 @@ class ArtistThumbListAdapter(var mContext : Context, var dataList: ArrayList<Art
     override fun getItemCount(): Int = dataList!!.size
 
     override fun onBindViewHolder(holder: ArtistThumbViewHolder, position: Int) {
-        Glide.with(mContext).load(dataList!!.get(position).profileImg).apply(RequestOptions.circleCropTransform()).into(holder!!.ivArtist)
+//        Glide.with(mContext).load(dataList!!.get(position).profileImg).apply(RequestOptions.circleCropTransform()).into(holder!!.ivArtist)
         holder!!.tvArtist.setText(dataList!!.get(position).name)
         holder.ivArtist.setOnClickListener{
             /*TODO

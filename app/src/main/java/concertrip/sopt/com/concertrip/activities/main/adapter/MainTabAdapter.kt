@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.MyPageFragment
-import concertrip.sopt.com.concertrip.activity.main.fragment.calendar.CalendarFragment
+import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.CalendarFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.liked.LikedFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.search.SearchFragment
 import concertrip.sopt.com.concertrip.utillity.Constatns
