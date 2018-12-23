@@ -9,7 +9,6 @@ import android.widget.Toast
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.list.viewholder.ArtistViewHolder
 import concertrip.sopt.com.concertrip.model.Artist
-import org.jetbrains.anko.toast
 
 class ArtistListAdapter(var mContext : Context, var dataList: ArrayList<Artist>) : RecyclerView.Adapter<ArtistViewHolder>(){
 
