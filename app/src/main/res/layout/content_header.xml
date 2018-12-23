@@ -22,14 +22,20 @@
                 android:layout_marginLeft="16.1dp"
                 app:srcCompat="@drawable/ic_account_circle"/>
         
-        <Button
-                android:id="@+id/btn_follow"
+        <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="121.6dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="18.8dp"
-        />
+                android:layout_alignParentRight="true">
+
+            <Button
+                    android:id="@+id/btn_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="121.6dp"
+                    android:layout_marginRight="18.8dp"
+            />
+
+        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="wrap_content"
@@ -76,7 +82,8 @@
                 android:layout_below="@+id/iv_back"
                 android:layout_marginTop="73.5dp"
                 android:layout_centerHorizontal="true"
-                android:background="#e6e6e6"/>
+                android:background="#e6e6e6"
+                android:layout_marginBottom="17.5dp"/>
 
     </RelativeLayout>
 
