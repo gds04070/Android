@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.GridAdapter
+import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.CalendarAdapter
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
@@ -42,6 +42,8 @@ class CalendarFragment : Fragment() {
 
     // 날짜 > date객체(스트링으로 넘어옴)
 
+    private var gridAdapter : CalendarAdapter by Delegates.notNull();
+
     /*TODO
     * have to make interface which contains schedule list
     * + adapter
@@ -52,10 +54,6 @@ class CalendarFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
-
-
-    private var dayList = ArrayList<String>()
-    private var gridAdapter : GridAdapter by Delegates.notNull();
 
     private var mCal: Calendar by Delegates.notNull()
 
@@ -90,7 +88,12 @@ class CalendarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        drawCalendar()
+
+        activity?.let {
+            gridAdapter = CalendarAdapter(it)
+            gv_calendar.adapter = gridAdapter
+
+        }
         initialUI()
 
     }
@@ -98,90 +101,7 @@ class CalendarFragment : Fragment() {
     private fun drawCalendar(){
 
 
-        val now = System.currentTimeMillis()
 
-        val date = Date(now)
-
-        //연,월,일을 따로 저장
-
-        val curYearFormat = SimpleDateFormat("yyyy", Locale.KOREA)
-
-        val curMonthFormat = SimpleDateFormat("MM", Locale.KOREA)
-
-        val curDayFormat = SimpleDateFormat("dd", Locale.KOREA)
-
-
-        tv_year.text  = curYearFormat.format(date)
-        tv_month.text=curMonthFormat.format(date)
-
-
-
-
-        //gridview 요일 표시
-
-        dayList = ArrayList()
-
-        dayList.add("일")
-
-        dayList.add("월")
-
-        dayList.add("화")
-
-        dayList.add("수")
-
-        dayList.add("목")
-
-        dayList.add("금")
-
-        dayList.add("토")
-
-
-
-        mCal = Calendar.getInstance()
-
-
-        //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
-
-        mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1)
-
-        val dayNum = mCal.get(Calendar.DAY_OF_WEEK)
-
-        //1일 - 요일 매칭 시키기 위해 공백 add
-
-        for (i in 1 until dayNum) {
-            dayList.add("")
-        }
-
-        setCalendarDate(mCal.get(Calendar.MONTH) + 1)
-
-
-
-        activity?.let {
-            gridAdapter = GridAdapter(it.applicationContext, dayList)
-            gv_calendar.adapter = gridAdapter
-
-        }
-
-
-
-
-
-    }
-    /**
-
-     * 해당 월에 표시할 일 수 구함
-
-     *
-
-     * @param month
-
-     */
-
-    private fun setCalendarDate(month : Int) {
-        mCal.set(Calendar.MONTH, month - 1);
-        for ( i  in 0 until mCal.getActualMaximum(Calendar.DAY_OF_MONTH)) {
-            dayList.add("" + (i + 1));
-        }
     }
 
 
