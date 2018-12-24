@@ -7,7 +7,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_concert"
-        tools:context=".activities.info.ConcertActivity"
         android:orientation="vertical"
         android:layout_marginHorizontal="16dp">
 
@@ -17,7 +16,7 @@
             android:textSize="20sp"
             android:textColor="#000000"
             android:lineSpacingExtra="9sp"
-            tools:text="출연진"
+            android:text="출연진"
             android:textStyle="bold"/>
 
     <View android:layout_width="match_parent"
@@ -31,9 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager">
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
 
-    </android.support.v7.widget.RecyclerView>
 
     <TextView
             android:id="@+id/btn_more"
@@ -53,7 +51,7 @@
             android:textSize="20sp"
             android:textColor="#000000"
             android:lineSpacingExtra="9sp"
-            tools:text="일정내용"
+            android:text="일정내용"
             android:textStyle="bold"
             android:layout_marginTop="2.7dp"/>
 
@@ -68,7 +66,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="공연시간"
+            android:text="공연시간"
             android:layout_marginTop="13.8dp"/>
     <TextView
             android:id="@+id/tv_concert_date"
@@ -77,7 +75,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="2018년 12월 23일 (일) 19:00"
+            android:text="2018년 12월 23일 (일) 19:00"
             android:layout_marginTop="13.8dp"/>
 
     <TextView
@@ -86,7 +84,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="티켓가격"
+            android:text="티켓가격"
             android:layout_marginTop="17.4dp"/>
     <TextView
             android:id="@+id/tv_concert_price"
@@ -95,7 +93,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="스탠딩 88,000원"
+            android:text="스탠딩 88,000원"
             android:layout_marginTop="13.8dp"/>
 
     <TextView
@@ -104,7 +102,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="출연"
+            android:text="출연"
             android:layout_marginTop="17.4dp"/>
     <TextView
             android:id="@+id/tv_concert_cast"
@@ -113,7 +111,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="지코, 페노메코, 크러쉬, 해쉬스완 등"
+            android:text="지코, 페노메코, 크러쉬, 해쉬스완 등"
             android:layout_marginTop="13.8dp"/>
 
     <TextView
@@ -122,7 +120,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="티켓구매"
+            android:text="티켓구매"
             android:layout_marginTop="17.4dp"/>
     <TextView
             android:id="@+id/tv_concert_link"
@@ -131,7 +129,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="concertrip.buy.com"
+            android:text="concertrip.buy.com"
             android:layout_marginTop="13.8dp"/>
 
     <TextView
@@ -140,7 +138,7 @@
         android:textSize="20sp"
         android:textColor="#000000"
         android:lineSpacingExtra="9sp"
-        tools:text="위치"
+        android:text="위치"
         android:textStyle="bold"
         android:layout_marginTop="17.8dp"/>
 
@@ -156,7 +154,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="세종대학교 광개토대왕"
+            android:text="세종대학교 광개토대왕"
             android:layout_marginTop="13.8dp"/>
 
     <TextView
@@ -165,7 +163,7 @@
             android:textSize="20sp"
             android:textColor="#000000"
             android:lineSpacingExtra="9sp"
-            tools:text="주의사항"
+            android:text="주의사항"
             android:textStyle="bold"
             android:layout_marginTop="17.8dp"/>
 
@@ -181,7 +179,7 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:lineSpacingExtra="11sp"
-            tools:text="물 반입 금지
+            android:text="물 반입 금지
 티켓부스 오픈시간 3시
 어쩌구 저쩌구
 팔지 꼭 어쩌구"
