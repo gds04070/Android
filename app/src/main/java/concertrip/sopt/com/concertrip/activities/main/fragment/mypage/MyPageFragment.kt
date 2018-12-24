@@ -57,8 +57,9 @@ class MyPageFragment : Fragment() {
 
     // TODO: Rename method, update argument and hook method into UI event
     fun changeFragment(){
-        listener?.changeFragment(Constatns.TAB_MY_PAGE)
+        listener?.changeFragment(Constatns.FRAGMENT_MY_PAGE)
     }
+
 
 
     override fun onAttach(context: Context) {

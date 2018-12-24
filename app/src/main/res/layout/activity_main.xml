@@ -24,8 +24,8 @@
     <!--<include layout="@layout/content_main"/>-->
 
 
-    <concertrip.sopt.com.concertrip.activities.main.view.ViewPagerSwipeless
-            android:id="@+id/viewPager"
+    <FrameLayout
+            android:id="@+id/container"
             android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
