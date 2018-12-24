@@ -22,7 +22,7 @@ import concertrip.sopt.com.concertrip.activities.main.adapter.MainFragmentAdapte
 
 class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
     override fun changeFragment(what: Int) {
-
+        fragmentAdapter.setFragment(what)
     }
 
     override fun onFragmentInteraction(uri: Uri) {
@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
 
     }
 
-
-    var tabAdapter : MainTabAdapter by Delegates.notNull()
     var fragmentAdapter : MainFragmentAdapter by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,48 +44,7 @@ class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
         main_tab.addTab(main_tab.newTab().setIcon(R.drawable.ic_tab).setText("마이페이지"))
 
 
-        fragmentAdapter = MainFragmentAdapter(supportFragmentManager)
-
-        tabAdapter = MainTabAdapter(supportFragmentManager, main_tab.tabCount)
-        viewPager.adapter = tabAdapter
-
-
-        main_tab.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(viewPager))
-        viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(main_tab))
-        viewPager.setCurrentItem(Constatns.TAB_CALENDAR,false)
-
-
-
-
-        viewPager.addOnPageChangeListener(object  : ViewPager.OnPageChangeListener{
-            override fun onPageScrollStateChanged(state: Int) {
-
-            }
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            }
-
-            override fun onPageSelected(position: Int) {
-                when(position){
-                    Constatns.TAB_CALENDAR->{
-                        //캘린터가 선택 되었을 경우
-                    }
-
-                    Constatns.TAB_SEARCH->{
-                        //검색이 선택 되었을 경우
-                    }
-
-                    Constatns.TAB_LIKED->{
-                        //찜 목록이 선택 되었을 경우
-                    }
-
-                    Constatns.TAB_MY_PAGE->{
-                        //마이페이지가 선택 되었을 경우
-                    }
-                }
-            }
-
-        })
+        fragmentAdapter = MainFragmentAdapter(supportFragmentManager, main_tab)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -100,6 +57,7 @@ class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
