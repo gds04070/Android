@@ -12,6 +12,7 @@ import concertrip.sopt.com.concertrip.list.viewholder.TicketViewHolder
 import concertrip.sopt.com.concertrip.model.Artist
 import android.util.Log
 import android.view.View
+import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
