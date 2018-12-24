@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".activity.main.MainActivity"
+                android:name=".activities.info.ConcertActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -24,11 +24,7 @@
                 android:label="@string/title_activity_artist"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity
-                android:name=".activities.info.ConcertActivity"
-                android:label="@string/title_activity_concert"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

@@ -4,9 +4,10 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.MyPageFragment
-import concertrip.sopt.com.concertrip.activity.main.fragment.calendar.CalendarFragment
+import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.CalendarFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.liked.LikedFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.search.SearchFragment
+import concertrip.sopt.com.concertrip.activity.main.fragment.search.SearchResultFragment
 import concertrip.sopt.com.concertrip.utillity.Constatns
 import kotlin.properties.Delegates
 
@@ -18,7 +19,7 @@ class MainTabAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm) {
     var tabCount: Int = 0
     var calendarFragment: CalendarFragment by Delegates.notNull()
     var likedFragment: LikedFragment by Delegates.notNull()
-    var searchFragment: SearchFragment by Delegates.notNull()
+    var searchFragment: SearchResultFragment by Delegates.notNull()
     var mypageFragment: MyPageFragment by Delegates.notNull()
 
 
@@ -27,7 +28,7 @@ class MainTabAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm) {
 
         this.calendarFragment = CalendarFragment()
         this.likedFragment= LikedFragment()
-        this.searchFragment = SearchFragment()
+        this.searchFragment = SearchResultFragment()
         this.mypageFragment = MyPageFragment()
     }
 
