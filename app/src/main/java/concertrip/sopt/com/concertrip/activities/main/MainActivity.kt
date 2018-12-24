@@ -1,6 +1,7 @@
 package concertrip.sopt.com.concertrip.activities.main
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -22,6 +23,7 @@ import concertrip.sopt.com.concertrip.activities.main.adapter.MainFragmentAdapte
 
 class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
     override fun changeFragment(what: Int) {
+
 
     }
 

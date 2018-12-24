@@ -90,7 +90,7 @@ class CalendarFragment : Fragment() {
         drawCalendar()
     }
 
-    fun drawCalendar(){
+    private fun drawCalendar(){
 
 
         val now = System.currentTimeMillis()

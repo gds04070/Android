@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.list.adapter.ArtistThumbListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
+import concertrip.sopt.com.concertrip.model.Concert
 
 import kotlinx.android.synthetic.main.content_concert.*
 
@@ -24,6 +25,7 @@ class ConcertActivity : AppCompatActivity() {
 
         val mAdapter = ArtistThumbListAdapter(this, Artist.getDummyArray())
         recycler_view.adapter = mAdapter
+
     }
 
 }
