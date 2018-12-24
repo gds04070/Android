@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
 import concertrip.sopt.com.concertrip.list.viewholder.ArtistViewHolder
 import concertrip.sopt.com.concertrip.model.Artist
+import org.jetbrains.anko.startActivity
 
 class ArtistListAdapter(var mContext : Context, var dataList: ArrayList<Artist>) : RecyclerView.Adapter<ArtistViewHolder>(){
 
@@ -29,6 +31,10 @@ class ArtistListAdapter(var mContext : Context, var dataList: ArrayList<Artist>)
 
         holder.btnFollow.setOnClickListener {
 
+        }
+
+        holder.itemView.setOnClickListener {
+            mContext.startActivity<ArtistActivity>()
         }
     }
 
