@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.model.Artist
+import concertrip.sopt.com.concertrip.model.Concert
+import concertrip.sopt.com.concertrip.model.Ticket
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +28,9 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class TicketFragment : Fragment() {
+
+    var dataList = arrayListOf<Ticket>()
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
