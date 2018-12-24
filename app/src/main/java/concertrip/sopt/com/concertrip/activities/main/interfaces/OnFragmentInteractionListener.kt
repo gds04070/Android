@@ -17,6 +17,8 @@ import android.net.Uri
 interface OnFragmentInteractionListener {
     fun onFragmentInteraction(uri: Uri)
 
+    fun changeFragment(what :Int)
+
     /*
     이 파일은 이번 프로젝트 내에서 사용 안 할 확률이 크므로 몰라도 됩니다.
     다만 궁금하다면 읽어봐도 되고 모르겠으면 물어보세요. -희성

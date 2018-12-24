@@ -10,6 +10,8 @@ import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+
+import concertrip.sopt.com.concertrip.utillity.Constatns
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Ticket
 
@@ -52,10 +54,12 @@ class MyPageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
 
+
     // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
+    fun changeFragment(){
+        listener?.changeFragment(Constatns.TAB_MY_PAGE)
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

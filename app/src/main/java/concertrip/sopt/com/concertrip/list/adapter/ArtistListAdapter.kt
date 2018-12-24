@@ -14,6 +14,8 @@ import org.jetbrains.anko.startActivity
 
 class ArtistListAdapter(var mContext : Context, var dataList: ArrayList<Artist>) : RecyclerView.Adapter<ArtistViewHolder>(){
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
 
         val mainView: View = LayoutInflater.from(parent.context).inflate(R.layout.li_artist, parent, false)
