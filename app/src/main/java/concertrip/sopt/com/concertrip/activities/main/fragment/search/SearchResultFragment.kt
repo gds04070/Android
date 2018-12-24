@@ -11,8 +11,10 @@ import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.list.adapter.ArtistListAdapter
 import concertrip.sopt.com.concertrip.list.adapter.ConcertListAdapter
-import concertrip.sopt.com.concertrip.model.Concer
+import concertrip.sopt.com.concertrip.model.Artist
+import concertrip.sopt.com.concertrip.model.Concert
 import kotlinx.android.synthetic.main.fragment_search_result.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -55,25 +57,25 @@ class SearchResultFragment : Fragment() {
 
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setArtistRecyclerView()
         setConcertRecyclerView()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        activity?.let {
-            val mAdapter = ArtistListAdapter(it.applicationContext, Artist.getDummyArray())
-            ly_artist_list.adapter = mAdapter
-        }
 
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
+    }
+
+    private fun setArtistRecyclerView(){
+        activity?.let {
+            val mAdapter = ArtistListAdapter(it.applicationContext, Artist.getDummyArray())
+            ly_artist_list.adapter = mAdapter
+        }
     }
 
 

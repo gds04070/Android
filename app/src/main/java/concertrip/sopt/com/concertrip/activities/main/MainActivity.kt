@@ -1,4 +1,4 @@
-package concertrip.sopt.com.concertrip.activity.main
+package concertrip.sopt.com.concertrip.activities.main
 
 import android.net.Uri
 import android.os.Bundle
