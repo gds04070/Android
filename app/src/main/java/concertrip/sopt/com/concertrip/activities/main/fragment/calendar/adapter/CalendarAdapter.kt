@@ -9,11 +9,16 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.viewholder.CalendarViewHolder
+import concertrip.sopt.com.concertrip.model.Schedule
 import kotlinx.android.synthetic.main.fragment_calendar.*
+import kotlinx.android.synthetic.main.item_schedule.view.*
+import org.jetbrains.anko.db.INTEGER
 import java.lang.ref.WeakReference
 import java.util.*
 import kotlin.properties.Delegates
 import java.text.SimpleDateFormat
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 /**
@@ -24,16 +29,15 @@ import java.text.SimpleDateFormat
 
  */
 
-class CalendarAdapter(var activity : Activity) : BaseAdapter() {
+class CalendarAdapter(var activity : Activity,var schedules : HashMap<Int,ArrayList<Schedule>>) : BaseAdapter() {
     private val mActivity: WeakReference<Activity> = WeakReference<Activity>(activity)
 
     private var dayList = ArrayList<String>()
 
-    var inflater: LayoutInflater by Delegates.notNull()
+    private var inflater: LayoutInflater by Delegates.notNull()
     private var mCal: Calendar by Delegates.notNull()
 
     private val viewHolderList = arrayOfNulls<CalendarViewHolder>(50)
-
 
 
     /**
@@ -118,11 +122,28 @@ class CalendarAdapter(var activity : Activity) : BaseAdapter() {
         val convertView: View
         if (view == null) {
 
-            convertView = if(position<=6) inflater.inflate(R.layout.item_calendar_day, parent, false)
-            else inflater.inflate(R.layout.item_calendar, parent, false)
+
+            val date =dayList[position].toIntOrNull()?:-1
+
+            convertView = if( date >0 || dayList[position].isBlank()) inflater.inflate(R.layout.item_calendar, parent, false)
+            else  inflater.inflate(R.layout.item_calendar_day, parent, false)
             holder = CalendarViewHolder(convertView)
             viewHolderList[position]=holder
 
+
+            if( schedules.containsKey(date)){
+                schedules[date]?.forEach {
+                    addSchedule(holder,it)
+                }
+
+
+            }
+            if(date>0) {
+                convertView.setOnClickListener {
+                    addSchedule(holder, Schedule.getDummy())
+
+                }
+            }
             convertView.tag = holder
 
         } else {
@@ -132,11 +153,10 @@ class CalendarAdapter(var activity : Activity) : BaseAdapter() {
         }
 
 
-        if(position<=6)
-            holder.tvDay?.text =  getItem(position).toString();
-
-        else
+        if(dayList[position].toIntOrNull() is Int)
             holder.tvDate?.text =  getItem(position).toString();
+        else
+            holder.tvDay?.text =  getItem(position).toString();
 
 
         //해당 날짜 텍스트 컬러,배경 변경
@@ -178,7 +198,11 @@ class CalendarAdapter(var activity : Activity) : BaseAdapter() {
     }
 
 
-    fun addSchedule(){
+    private fun addSchedule(holder: CalendarViewHolder,schedule: Schedule){
+        val scheduleView =inflater.inflate(R.layout.item_schedule, null, false)
+        scheduleView.tv_calendar_schedule.text=(schedule.text)
+//                voteExamples.add(edtView.findViewById(R.id.edt_vote_example))
+        holder.lySchedule?.addView(scheduleView)
 
     }
 

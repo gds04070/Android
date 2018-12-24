@@ -12,6 +12,7 @@ import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
+import concertrip.sopt.com.concertrip.model.Schedule
 import concertrip.sopt.com.concertrip.utillity.Constants
 import java.util.*
 import kotlin.properties.Delegates
@@ -90,7 +91,7 @@ class CalendarFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.let {
-            gridAdapter = CalendarAdapter(it)
+            gridAdapter = CalendarAdapter(it,Schedule.toMap(Schedule.getDummyList()))
             gv_calendar.adapter = gridAdapter
 
         }
