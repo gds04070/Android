@@ -12,6 +12,7 @@ import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
+import concertrip.sopt.com.concertrip.utillity.Constatns
 import java.util.*
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.fragment_calendar.*
@@ -85,12 +86,16 @@ class CalendarFragment : Fragment() {
     }
 
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         drawCalendar()
+        initialUI()
+
     }
 
-    fun drawCalendar(){
+    private fun drawCalendar(){
 
 
         val now = System.currentTimeMillis()
@@ -183,6 +188,17 @@ class CalendarFragment : Fragment() {
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
+    }
+
+    fun changeFragment(){
+        listener?.changeFragment(Constatns.FRAGMENT_NOTIFICATION)
+    }
+
+
+    private fun initialUI(){
+        btn_notification.setOnClickListener {
+            changeFragment()
+        }
     }
 
 

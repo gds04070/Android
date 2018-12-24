@@ -21,6 +21,8 @@ import concertrip.sopt.com.concertrip.activities.main.adapter.MainFragmentAdapte
 
 
 class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
+
+
     override fun changeFragment(what: Int) {
         fragmentAdapter.setFragment(what)
     }

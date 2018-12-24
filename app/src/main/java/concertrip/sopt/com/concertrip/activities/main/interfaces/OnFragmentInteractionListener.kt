@@ -1,6 +1,7 @@
 package concertrip.sopt.com.concertrip.activities.main.interfaces
 
 import android.net.Uri
+import android.os.Bundle
 
 
 /**
@@ -18,6 +19,8 @@ interface OnFragmentInteractionListener {
     fun onFragmentInteraction(uri: Uri)
 
     fun changeFragment(what :Int)
+
+    //un changeFragment(what :Int,bundle: Bundle?)
 
     /*
     이 파일은 이번 프로젝트 내에서 사용 안 할 확률이 크므로 몰라도 됩니다.
