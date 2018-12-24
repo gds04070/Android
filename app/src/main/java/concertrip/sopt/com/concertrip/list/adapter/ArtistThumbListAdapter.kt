@@ -27,11 +27,11 @@ class ArtistThumbListAdapter(var mContext : Context, var dataList: ArrayList<Art
         return ArtistThumbViewHolder(view)
     }
 
-    override fun getItemCount(): Int = dataList!!.size
+    override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: ArtistThumbViewHolder, position: Int) {
-        Glide.with(mContext).load(dataList!!.get(position).profileImg).apply(RequestOptions.circleCropTransform()).into(holder!!.ivArtist)
-        holder!!.tvArtist.setText(dataList!!.get(position).name)
+        Glide.with(mContext).load(dataList.get(position).profileImg).apply(RequestOptions.circleCropTransform()).into(holder!!.ivArtist)
+        holder.tvArtist.text = dataList.get(position).name
         holder.ivArtist.setOnClickListener{
             /*TODO
             * 클릭시 해당 아티스트의 디테일 뷰로 이동*/

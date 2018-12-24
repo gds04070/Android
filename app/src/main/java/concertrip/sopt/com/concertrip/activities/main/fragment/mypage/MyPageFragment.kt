@@ -1,7 +1,6 @@
 package concertrip.sopt.com.concertrip.activities.main.fragment.mypage
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -11,9 +10,8 @@ import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
 
-import concertrip.sopt.com.concertrip.utillity.Constatns
+import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.model.Artist
-import concertrip.sopt.com.concertrip.model.Ticket
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,7 +55,7 @@ class MyPageFragment : Fragment() {
 
     // TODO: Rename method, update argument and hook method into UI event
     fun changeFragment(){
-        listener?.changeFragment(Constatns.FRAGMENT_MY_PAGE)
+        listener?.changeFragment(Constants.FRAGMENT_MY_PAGE)
     }
 
 

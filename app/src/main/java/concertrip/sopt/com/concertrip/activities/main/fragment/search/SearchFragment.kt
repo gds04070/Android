@@ -12,7 +12,7 @@ import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
-import concertrip.sopt.com.concertrip.utillity.Constatns
+import concertrip.sopt.com.concertrip.utillity.Constants
 import kotlinx.android.synthetic.main.fragment_search.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -62,7 +62,7 @@ class SearchFragment : Fragment() {
 
 
     fun changeFragment(){
-        listener?.changeFragment(Constatns.FRAGMENT_SEARCH_RESULT)
+        listener?.changeFragment(Constants.FRAGMENT_SEARCH_RESULT)
     }
 
     fun initialUI(){

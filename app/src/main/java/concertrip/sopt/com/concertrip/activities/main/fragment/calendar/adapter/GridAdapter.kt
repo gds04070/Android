@@ -73,7 +73,7 @@ class GridAdapter(var context : Context) : BaseAdapter() {
 
     override fun getView(position: Int, view: View?, parent: ViewGroup?): View {
 
-        var holder: CalendarViewHolder? = null;
+        var holder: CalendarViewHolder?;
 
 
         val convertView: View

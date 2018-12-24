@@ -12,7 +12,7 @@ import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
-import concertrip.sopt.com.concertrip.utillity.Constatns
+import concertrip.sopt.com.concertrip.utillity.Constants
 import java.util.*
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.fragment_calendar.*
@@ -191,7 +191,7 @@ class CalendarFragment : Fragment() {
     }
 
     fun changeFragment(){
-        listener?.changeFragment(Constatns.FRAGMENT_NOTIFICATION)
+        listener?.changeFragment(Constants.FRAGMENT_NOTIFICATION)
     }
 
 

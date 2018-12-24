@@ -6,9 +6,8 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.MyPageFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.CalendarFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.liked.LikedFragment
-import concertrip.sopt.com.concertrip.activity.main.fragment.search.SearchFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.search.SearchResultFragment
-import concertrip.sopt.com.concertrip.utillity.Constatns
+import concertrip.sopt.com.concertrip.utillity.Constants
 import kotlin.properties.Delegates
 
 /**
@@ -35,10 +34,10 @@ class MainTabAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment? {
         return when (position) {
-            Constatns.TAB_CALENDAR -> calendarFragment
-            Constatns.TAB_SEARCH -> searchFragment
-            Constatns.TAB_LIKED -> likedFragment
-            Constatns.TAB_MY_PAGE->mypageFragment
+            Constants.TAB_CALENDAR -> calendarFragment
+            Constants.TAB_SEARCH -> searchFragment
+            Constants.TAB_LIKED -> likedFragment
+            Constants.TAB_MY_PAGE->mypageFragment
             else -> null
         }
 
