@@ -5,22 +5,7 @@
               android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:padding="16dp"
-              tools:context=".activity.main.fragment.calendar.CalendarFragment">
-
-    <!--
-   Linear
-R.id.tv_month
-R.id.tv_year
-R.id.btn_notification
-R.id.recycler_view_?
-R.id.btn_change
-R.id.ly_calendar
-   R.id.ly_date
-R.id.recycler_view(li_concert*)
-TextView
-
-Item_info??(모두, 힙합페스티벌, 지코 등)
--->
+              tools:context=".activities.main.fragment.calendar.CalendarFragment">
 
     <RelativeLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -76,7 +61,7 @@ Item_info??(모두, 힙합페스티벌, 지코 등)
 
     <GridView
             android:layout_marginTop="10dp"
-            android:id="@+id/gridview"
+            android:id="@+id/gv_calendar"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:numColumns="7"

@@ -4,12 +4,16 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.list.adapter.ArtistListAdapter
+import concertrip.sopt.com.concertrip.model.Artist
+import kotlinx.android.synthetic.main.fragment_search_result.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,6 +49,16 @@ class SearchResultFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_search_result, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        activity?.let {
+            val mAdapter = ArtistListAdapter(it.applicationContext, Artist.getDummyArray())
+            ly_artist_list.adapter = mAdapter
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
