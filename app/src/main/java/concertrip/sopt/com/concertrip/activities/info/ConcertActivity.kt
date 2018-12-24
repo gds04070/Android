@@ -25,6 +25,7 @@ class ConcertActivity : AppCompatActivity() {
 
         val mAdapter = ArtistThumbListAdapter(this, Artist.getDummyArray())
         recycler_view.adapter = mAdapter
+
     }
 
 }

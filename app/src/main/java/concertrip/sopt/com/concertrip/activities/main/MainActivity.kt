@@ -1,30 +1,30 @@
 package concertrip.sopt.com.concertrip.activities.main
 
-import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.TabLayout
-import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
-import concertrip.sopt.com.concertrip.activities.main.adapter.MainTabAdapter
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
-import concertrip.sopt.com.concertrip.utillity.Constatns
+import concertrip.sopt.com.concertrip.utillity.Constants
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.properties.Delegates
-import android.view.MotionEvent
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.adapter.MainFragmentAdapter
+import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_LIKED
+import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_MY_PAGE
 
 
 class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
-
+    override fun changeFragment(what: Int, bundle: Bundle?) {
+        fragmentAdapter.setFragment(what,bundle)
+    }
 
     override fun changeFragment(what: Int) {
-        fragmentAdapter.setFragment(what)
+        changeFragment(what,null)
+
     }
 
     override fun onFragmentInteraction(uri: Uri) {
@@ -47,6 +47,34 @@ class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
 
 
         fragmentAdapter = MainFragmentAdapter(supportFragmentManager, main_tab)
+        main_tab.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when(tab?.position) {
+                    Constants.TAB_CALENDAR->{
+                        fragmentAdapter.setFragment(Constants.FRAGMENT_CALENDAR)
+                    }
+                    Constants.TAB_SEARCH->{
+                        fragmentAdapter.setFragment(Constants.FRAGMENT_SEARCH)
+                    }
+                    Constants.TAB_LIKED->{
+                        fragmentAdapter.setFragment(FRAGMENT_LIKED)
+                    }
+                    Constants.TAB_MY_PAGE->{
+                        fragmentAdapter.setFragment(FRAGMENT_MY_PAGE)
+                    }
+
+                }
+            }
+        })
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

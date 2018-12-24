@@ -32,6 +32,9 @@ class NotificationFragment : Fragment() {
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
 
+    var dataListAlarm  = arrayListOf<Artist>()
+    //Alarm혹은 Noti라는 Class르를 만들어야함.
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
