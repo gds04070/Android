@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.GridAdapter
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.model.Artist
+import concertrip.sopt.com.concertrip.model.Concert
 import java.util.*
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.fragment_calendar.*
@@ -31,7 +33,20 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class CalendarFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
+    var dataListFilter = arrayListOf<String>()
+    var dataListArtist = arrayListOf<Artist>()
+    var dataListConcert = arrayListOf<Concert>()
+    var dataListDay = arrayListOf<String>()
+
+    // 날짜 > date객체(스트링으로 넘어옴)
+
+    /*TODO
+    * have to make interface which contains schedule list
+    * + adapter
+    * + hash map key=day value=interface()*/
+
+   // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
@@ -44,6 +59,14 @@ class CalendarFragment : Fragment() {
     private var mCal: Calendar by Delegates.notNull()
 
 
+
+    fun artistToCal(artist: Artist){
+        /*TODO have to implement it*/
+    }
+
+    fun concertToCal(concert: Concert){
+        /*TODO have to implement it*/
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
