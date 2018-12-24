@@ -4,12 +4,16 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.list.adapter.ConcertListAdapter
+import concertrip.sopt.com.concertrip.model.Concert
+import kotlinx.android.synthetic.main.fragment_search_result.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +35,9 @@ class SearchResultFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+
+    lateinit var concertListAdapter: ConcertListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -45,11 +52,30 @@ class SearchResultFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_search_result, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setConcertRecyclerView()
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
+    }
+
+
+    private fun setConcertRecyclerView(){
+
+        activity?.let {
+
+            concertListAdapter = ConcertListAdapter(it, Concert.getDummyArray())
+            ly_concert_list.adapter = concertListAdapter
+            ly_concert_list.layoutManager = LinearLayoutManager(activity)
+
+        }
     }
 
     override fun onAttach(context: Context) {
