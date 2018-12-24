@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.activities.info.ConcertActivity
 import concertrip.sopt.com.concertrip.list.viewholder.ConcertViewHolder
 import concertrip.sopt.com.concertrip.list.viewholder.TicketViewHolder
 import concertrip.sopt.com.concertrip.model.Concert
 import org.jetbrains.anko.image
+import org.jetbrains.anko.startActivity
 
 class ConcertListAdapter(var mContext: Context, var dataList: ArrayList<Concert>) : RecyclerView.Adapter<ConcertViewHolder>(){
 
@@ -28,8 +30,11 @@ class ConcertListAdapter(var mContext: Context, var dataList: ArrayList<Concert>
             holder.tvTag.text = concert.getTag()
             holder.tvname.text = concert.title
 
-            holder.ivLike.setOnClickListener {
-
+            holder.itemView.setOnClickListener {
+                    mContext.startActivity<ConcertActivity>()
             }
+
+            holder.ivLike.setOnClickListener {  }
+
     }
 }
