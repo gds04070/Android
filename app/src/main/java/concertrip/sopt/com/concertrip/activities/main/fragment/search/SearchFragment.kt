@@ -12,6 +12,8 @@ import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
+import concertrip.sopt.com.concertrip.utillity.Constatns
+import kotlinx.android.synthetic.main.fragment_search.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,6 +59,23 @@ class SearchFragment : Fragment() {
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
     }
+
+
+    fun changeFragment(){
+        listener?.changeFragment(Constatns.FRAGMENT_SEARCH_RESULT)
+    }
+
+    fun initialUI(){
+        btn_more_station.setOnClickListener {
+            changeFragment()
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initialUI()
+    }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

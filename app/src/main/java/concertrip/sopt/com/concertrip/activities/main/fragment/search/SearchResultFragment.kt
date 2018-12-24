@@ -61,6 +61,7 @@ class SearchResultFragment : Fragment() {
 
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setArtistRecyclerView()
@@ -76,6 +77,7 @@ class SearchResultFragment : Fragment() {
     private fun setArtistRecyclerView(){
         activity?.let {
             val mAdapter = ArtistListAdapter(it.applicationContext, Artist.getDummyArray())
+
             ly_artist_list.adapter = mAdapter
         }
     }

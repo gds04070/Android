@@ -18,6 +18,8 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
+import org.jetbrains.anko.startActivity
 
 class ArtistThumbListAdapter(var mContext : Context, var dataList: ArrayList<Artist>) : RecyclerView.Adapter<ArtistThumbViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ArtistThumbViewHolder {
@@ -33,6 +35,10 @@ class ArtistThumbListAdapter(var mContext : Context, var dataList: ArrayList<Art
         holder.ivArtist.setOnClickListener{
             /*TODO
             * 클릭시 해당 아티스트의 디테일 뷰로 이동*/
+        }
+
+        holder.itemView.setOnClickListener {
+            mContext.startActivity<ArtistActivity>()
         }
     }
 }
