@@ -14,27 +14,6 @@
                 android:layout_height="wrap_content">
 
             <TextView
-                    android:text="내가 구독한 아티스트"
-                    android:textSize="17sp"
-                    android:textColor="#010101"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="9dp"
-                    android:background="#9e9e9f"/>
-
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view_follow"
-                    android:layout_marginTop="7dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-            </android.support.v7.widget.RecyclerView>
-
-            <TextView
-                    android:layout_marginTop="55.7dp"
                     android:text="내 티켓"
                     android:textSize="17sp"
                     android:textColor="#010101"
@@ -45,8 +24,29 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="9dp"
                     android:background="#9e9e9f"/>
+
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_ticket"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                    android:layout_marginTop="55.7dp"
+                    android:text="결제 내역"
+                    android:textSize="17sp"
+                    android:textColor="#010101"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="9dp"
+                    android:background="#9e9e9f"/>
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_pay"
                     android:layout_marginTop="7dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
