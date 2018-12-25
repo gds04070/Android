@@ -19,7 +19,6 @@ class AlarmListAdapter(var mContext: Context, var dataList : ArrayList<Alarm>) :
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: AlarmViewHolder, position: Int) {
-        holder.tvdate.text = dataList[position].title
-        holder.tvtitle.text = dataList[position].date
+
     }
 }
