@@ -3,16 +3,16 @@ package concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.GridView
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.viewholder.CalendarViewHolder
 import concertrip.sopt.com.concertrip.model.Schedule
 import kotlinx.android.synthetic.main.fragment_calendar.*
-import kotlinx.android.synthetic.main.item_schedule.view.*
-import org.jetbrains.anko.db.INTEGER
 import java.lang.ref.WeakReference
 import java.util.*
 import kotlin.properties.Delegates
@@ -29,13 +29,22 @@ import kotlin.collections.HashMap
 
  */
 
-class CalendarAdapter(var activity : Activity,var schedules : HashMap<Int,ArrayList<Schedule>>) : BaseAdapter() {
+class CalendarAdapter(var activity : Activity,var scheduleMap : HashMap<Int,ArrayList<Schedule>>) : BaseAdapter() {
+
+    private val TYPE_DAY = 0
+    private val TYPE_BLANK = 1
+    private val TYPE_DATE = 2
+
+    private val LOG_TAG : String = this::class.java.simpleName
+
     private val mActivity: WeakReference<Activity> = WeakReference<Activity>(activity)
 
     private var dayList = ArrayList<String>()
 
     private var inflater: LayoutInflater by Delegates.notNull()
     private var mCal: Calendar by Delegates.notNull()
+
+    private var gridView : GridView by Delegates.notNull()
 
     private val viewHolderList = arrayOfNulls<CalendarViewHolder>(50)
 
@@ -49,6 +58,7 @@ class CalendarAdapter(var activity : Activity,var schedules : HashMap<Int,ArrayL
     init{
 
         val mContext = activity.applicationContext
+
         this.inflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         val now = System.currentTimeMillis()
@@ -68,6 +78,7 @@ class CalendarAdapter(var activity : Activity,var schedules : HashMap<Int,ArrayL
         mActivity.get()?.apply {
             tv_year.text  = curYearFormat.format(date)
             tv_month.text=curMonthFormat.format(date)
+            gridView = gv_calendar
         }
 
 
@@ -108,56 +119,42 @@ class CalendarAdapter(var activity : Activity,var schedules : HashMap<Int,ArrayL
 
     }
 
+
     override fun getItem(position: Int): Any = dayList[position]
 
     override fun getItemId(position: Int): Long =position.toLong()
 
     override fun getCount(): Int = dayList.size
 
+    override fun getItemViewType(position: Int): Int {
+        return when {
+            dayList[position].toIntOrNull() != null -> TYPE_DATE
+            dayList[position].isNotBlank() -> TYPE_DAY
+            else -> TYPE_BLANK
+        }
+//            return super.getItemViewType(position)
+    }
+
     override fun getView(position: Int, view: View?, parent: ViewGroup?): View {
+
+
+        Log.d("$LOG_TAG/getView()","position : $position")
 
         val holder: CalendarViewHolder?;
 
 
         val convertView: View
-        if (view == null) {
-
-
-            val date =dayList[position].toIntOrNull()?:-1
-
-            convertView = if( date >0 || dayList[position].isBlank()) inflater.inflate(R.layout.item_calendar, parent, false)
-            else  inflater.inflate(R.layout.item_calendar_day, parent, false)
-            holder = CalendarViewHolder(convertView)
-            viewHolderList[position]=holder
-
-
-            if( schedules.containsKey(date)){
-                schedules[date]?.forEach {
-                    addSchedule(holder,it)
-                }
-
-
-            }
-            if(date>0) {
-                convertView.setOnClickListener {
-                    addSchedule(holder, Schedule.getDummy())
-
-                }
-            }
-            convertView.tag = holder
+        if (view == null || viewHolderList[position]==null) {
+            convertView= makeGridItem(position,parent)
+            holder= convertView.tag as CalendarViewHolder
 
         } else {
-            convertView = view
+            convertView = viewHolderList[position]!!.itemView
             holder = convertView.tag as CalendarViewHolder;
 
         }
 
-
-        if(dayList[position].toIntOrNull() is Int)
-            holder.tvDate?.text =  getItem(position).toString();
-        else
-            holder.tvDay?.text =  getItem(position).toString();
-
+        holder.tvCalendar.text =  getItem(position).toString();
 
         //해당 날짜 텍스트 컬러,배경 변경
 
@@ -171,14 +168,72 @@ class CalendarAdapter(var activity : Activity,var schedules : HashMap<Int,ArrayL
 
 
         if (sToday == getItem(position)) { //오늘 date 텍스트 컬러 변경
-
-            holder.tvDate?.setTextColor(Color.WHITE)
+            holder.tvCalendar.setTextColor(Color.WHITE)
             holder.itemView.setBackgroundColor(Color.RED)
         }
 
         return convertView;
     }
+    //position : 만들어질 View의 Index
+    private fun makeGridItem(position: Int,parent: ViewGroup?) : View{
 
+
+        Log.d("$LOG_TAG/makeGridItem","---position : $position")
+
+        viewHolderList[position]?.let {
+
+            Log.d("$LOG_TAG/makeGridItem","already created")
+            return it.itemView
+        }
+
+        Log.d("$LOG_TAG/makeGridItem","dayList[position] : ${getItem(position)}")
+        Log.d("$LOG_TAG/makeGridItem","viewType : ${getItemViewType(position)}")
+        Log.d("$LOG_TAG/makeGridItem","create now")
+
+
+        val viewType = getItemViewType(position)
+        var date : Int? = null
+        val convertView = when(viewType){
+           TYPE_DAY->{
+               inflater.inflate(R.layout.item_calendar_day,parent, false)
+           }
+            TYPE_DATE->{
+                date = getItem(position).toString().toInt()
+                inflater.inflate(R.layout.item_calendar, parent, false)
+            }
+            else->{
+                inflater.inflate(R.layout.item_calendar, parent, false)
+            }
+        }
+        val holder = CalendarViewHolder(convertView)
+        viewHolderList[position]=holder
+
+
+        date?.let { it ->
+            if(scheduleMap.containsKey(it)){
+                scheduleMap[it]?.forEach() { s ->
+                    addCalendarItem(position,s)
+                }
+            }
+
+            convertView.setOnClickListener { _ ->
+                val s = Schedule.getDummy(date)
+                if(scheduleMap[it].isNullOrEmpty()){
+                    scheduleMap[it]=ArrayList<Schedule>()
+                    scheduleMap[it]?.add(s)
+                }else {
+                    scheduleMap[it]?.add(s)
+                }
+                addCalendarItem(position, s)
+            }
+
+        }
+
+
+        convertView.tag = holder
+        return convertView
+
+    }
 
     /**
 
@@ -198,13 +253,41 @@ class CalendarAdapter(var activity : Activity,var schedules : HashMap<Int,ArrayL
     }
 
 
-    private fun addSchedule(holder: CalendarViewHolder,schedule: Schedule){
-        val scheduleView =inflater.inflate(R.layout.item_schedule, null, false)
-        scheduleView.tv_calendar_schedule.text=(schedule.text)
-//                voteExamples.add(edtView.findViewById(R.id.edt_vote_example))
+    var LIMIT_SCHEDULE_IN_ONE_BLOCK : Int= 8
+    private fun addCalendarItem(position : Int, schedule: Schedule){
+
+
+
+        val cnt =viewHolderList[position]?.lySchedule?.childCount ?:LIMIT_SCHEDULE_IN_ONE_BLOCK+1
+        if(cnt >=LIMIT_SCHEDULE_IN_ONE_BLOCK){
+            if(cnt==LIMIT_SCHEDULE_IN_ONE_BLOCK)
+                addEllipsis(position)
+            return
+        }else {
+//        Log.d("$LOG_TAG/addCalendarItem",schedule.text)
+            addSchedule(position,schedule)
+        }
+    }
+
+    private fun addSchedule(position : Int, schedule: Schedule){
+
+        val holder = viewHolderList[position] as CalendarViewHolder
+
+        val scheduleView = inflater.inflate(R.layout.item_schedule, holder.lySchedule, false)
+        schedule.position=position
+        holder.lySchedule?.addView(scheduleView)
+    }
+
+
+    private fun addEllipsis(position : Int){
+
+        val holder = viewHolderList[position] as CalendarViewHolder
+
+        val scheduleView =inflater.inflate(R.layout.item_ellipsis, holder.lySchedule, false)
         holder.lySchedule?.addView(scheduleView)
 
     }
+
 
 }
 

@@ -56,9 +56,6 @@ class CalendarFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
 
-    private var mCal: Calendar by Delegates.notNull()
-
-
 
     fun artistToCal(artist: Artist){
         /*TODO have to implement it*/
@@ -92,7 +89,9 @@ class CalendarFragment : Fragment() {
 
         activity?.let {
             gridAdapter = CalendarAdapter(it,Schedule.toMap(Schedule.getDummyList()))
+
             gv_calendar.adapter = gridAdapter
+
 
         }
         initialUI()

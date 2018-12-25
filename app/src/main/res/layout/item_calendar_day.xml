@@ -8,7 +8,7 @@
               android:gravity="center">
     <TextView android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:id="@+id/tv_calendar_day"
+              android:id="@+id/tv_calendar"
               android:text="월"
               android:gravity="center_horizontal"/>
 </LinearLayout>
