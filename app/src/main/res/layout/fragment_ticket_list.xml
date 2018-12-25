@@ -2,15 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:orientation="vertical"
               android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-              tools:context=".activities.main.fragment.mypage.ticket.TicketFragment">
+              android:orientation="vertical"
+              tools:context=".activities.main.fragment.mypage.ticket.TicketListFragment">
     <TextView
             android:text="티켓"
             android:textSize="17sp"
             android:textColor="#010101"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_ticket_list"
+            android:orientation="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>
