@@ -58,12 +58,16 @@ class MainFragmentAdapter(val fragmentManager: FragmentManager, val mainTab: Tab
         mainTab.getTabAt(curTabId)!!.setIcon(setIcons[curTabId])
     }
 
-    private fun setTab(what : Int){
+    fun setTab(what : Int){
         if(what==-1) return
 
-        mainTab.getTabAt(curTabId)!!.setIcon(unsetIcons[curTabId])
+        mainTab.getTabAt(curTabId)?.setIcon(unsetIcons[curTabId])
         curTabId = what
-        mainTab.getTabAt(curTabId)!!.setIcon(setIcons[curTabId])
+        mainTab.getTabAt(curTabId)?.setIcon(setIcons[curTabId])
+        mainTab.getTabAt(curTabId)?.select()
+
+
+
     }
 
     fun setFragment(what : Int) = setFragment(what,null)
@@ -118,7 +122,11 @@ class MainFragmentAdapter(val fragmentManager: FragmentManager, val mainTab: Tab
         }
         //if(fragment.isAdded) return
         fragmentTransaction.replace(R.id.container ,fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.setBreadCrumbShortTitle(curFragmentId);
+
         fragmentTransaction.commit()
     }
+
 
 }

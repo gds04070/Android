@@ -76,7 +76,8 @@
         </LinearLayout>
 
         <!--have to fix it-->
-        <ImageView
+        <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/youtude"
                 android:layout_width="326.7dp"
                 android:layout_height="184.7dp"
                 android:layout_below="@+id/iv_back"

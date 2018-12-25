@@ -9,15 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.CalendarAdapter
-import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.model.Schedule
 import concertrip.sopt.com.concertrip.utillity.Constants
-import java.util.*
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.fragment_calendar.*
-import java.text.SimpleDateFormat
 
 
 // TODO: Rename parameter arguments, choose names that match
