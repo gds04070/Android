@@ -4,11 +4,14 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              android:padding="16dp"
               tools:context=".activities.main.fragment.calendar.CalendarFragment">
 
     <RelativeLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
+
+                    android:paddingTop="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="30dp">
 
@@ -46,7 +49,10 @@
 
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:layout_marginBottom="21dp">
+                  android:layout_marginBottom="21dp"
+                  android:paddingStart="16dp"
+                  android:paddingEnd="16dp"
+    >
     <android.support.v7.widget.RecyclerView android:layout_width="0dp"
                                             android:layout_height="24dp"
                                             android:id="@+id/recycler_view_filter"
@@ -64,8 +70,6 @@
             android:id="@+id/gv_calendar"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-
-
             android:numColumns="7"
     />
 

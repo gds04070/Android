@@ -7,10 +7,10 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         >
-    <ImageView android:layout_width="8dp"
-              android:layout_height="8dp"
-              android:id="@+id/iv_schedule"
-              android:src="@drawable/ic_tab"
-               android:tint="@color/colorPrimary"
-              android:gravity="center_horizontal"/>
+    <TextView
+            android:id="@+id/tv_ellipsis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="..."
+    />
 </LinearLayout>
