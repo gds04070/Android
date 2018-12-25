@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+             tools:context=".activities.main.fragment.mypage.SettingFragment">
+
+    <TextView
+            android:text="설정"
+            android:textSize="17sp"
+            android:textColor="#010101"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <LinearLayout
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp">
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+
+                android:layout_width="46dp"
+                android:layout_height="46dp"/>
+        <TextView
+
+                android:layout_weight="5"
+                android:text="푸시알림설정"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp">
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+
+                android:layout_width="46dp"
+                android:layout_height="46dp"/>
+        <TextView
+
+                android:layout_weight="5"
+                android:text="캘린더설정"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp">
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+
+                android:layout_width="46dp"
+                android:layout_height="46dp"/>
+        <TextView
+
+                android:layout_weight="5"
+                android:text="문의/건의하기"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp">
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+
+                android:layout_width="46dp"
+                android:layout_height="46dp"/>
+        <TextView
+
+                android:layout_weight="5"
+                android:text="서비스 이용약관"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:background="#f2f2f2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp">
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+
+                android:layout_width="46dp"
+                android:layout_height="46dp"/>
+        <TextView
+
+                android:layout_weight="5"
+                android:text="공연 기획자"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_account_circle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+    </LinearLayout>
+
+</LinearLayout>
