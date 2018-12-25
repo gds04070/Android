@@ -253,7 +253,7 @@ class CalendarAdapter(var activity : Activity,var scheduleMap : HashMap<Int,Arra
     }
 
 
-    var LIMIT_SCHEDULE_IN_ONE_BLOCK : Int= 8
+    var LIMIT_SCHEDULE_IN_ONE_BLOCK : Int= 7
     private fun addCalendarItem(position : Int, schedule: Schedule){
 
 
