@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
+import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Constants
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.jetbrains.anko.support.v4.startActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,6 +35,10 @@ class SearchFragment : Fragment() {
 
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
+
+    var onClickListener : View.OnClickListener = View.OnClickListener {
+        startActivity<ArtistActivity>()
+    }
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null

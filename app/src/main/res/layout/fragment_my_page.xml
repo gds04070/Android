@@ -54,6 +54,7 @@
             </android.support.v7.widget.RecyclerView>
             <TextView
                     android:text="전체보기"
+                    android:id="@+id/btn_more"
                     android:textSize="12sp"
                     android:textColor="#666666"
                     android:layout_marginTop="6.8dp"

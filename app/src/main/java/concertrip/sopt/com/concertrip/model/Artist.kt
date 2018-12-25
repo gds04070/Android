@@ -1,6 +1,9 @@
 package concertrip.sopt.com.concertrip.model
 
-class Artist {
+import concertrip.sopt.com.concertrip.interfaces.ListData
+
+class Artist : ListData{
+
     var idx : Int = 0
     var profileImg : String =""
     var backImg : String =""
@@ -10,6 +13,12 @@ class Artist {
 
     fun getTag() : String ="#$genre #$genre"
 
+
+    override fun getMainTitle(): String =name
+
+    override fun getSubTitle(): String=getTag()
+
+    override fun getImageUrl(): String=profileImg
 
     companion object {
 

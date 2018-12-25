@@ -9,7 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.model.Alarm
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 
@@ -32,7 +33,7 @@ class NotificationFragment : Fragment() {
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
 
-    var dataListAlarm  = arrayListOf<Artist>()
+    var dataListAlarm  = arrayListOf<Alarm>()
     //Alarm혹은 Noti라는 Class르를 만들어야함.
 
     // TODO: Rename and change types of parameters
