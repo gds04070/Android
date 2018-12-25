@@ -3,6 +3,7 @@ package concertrip.sopt.com.concertrip.activities.info
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
+import com.google.android.youtube.player.YouTubeBaseActivity
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
