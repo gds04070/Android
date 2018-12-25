@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.list.adapter.ArtistListAdapter
 import concertrip.sopt.com.concertrip.list.adapter.ConcertListAdapter
 import concertrip.sopt.com.concertrip.model.Artist

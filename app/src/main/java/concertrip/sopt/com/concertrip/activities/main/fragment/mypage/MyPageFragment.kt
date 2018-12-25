@@ -8,10 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.activities.main.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
+import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 
 import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.model.Artist
+import kotlinx.android.synthetic.main.content_concert.view.*
+import kotlinx.android.synthetic.main.fragment_my_page.*
+import org.jetbrains.anko.support.v4.startActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,6 +56,12 @@ class MyPageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btn_more.setOnClickListener {
+            startActivity<ArtistActivity>()
+        }
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     fun changeFragment(){

@@ -1,6 +1,9 @@
 package concertrip.sopt.com.concertrip.model
 
-class Concert {
+import concertrip.sopt.com.concertrip.interfaces.ListData
+
+class Concert : ListData {
+
     var idx: Int=0
     var title : String = ""
     var profileImg : String =""
@@ -14,6 +17,13 @@ class Concert {
     var youtubeUrl : String =""
 
     fun getTag() : String ="#$genre #$genre"
+
+    override fun getMainTitle(): String =title
+
+    override fun getSubTitle(): String =getTag()
+
+    override fun getImageUrl(): String =profileImg
+
 
     companion object {
         fun getDummyArray() : ArrayList<Concert>{
