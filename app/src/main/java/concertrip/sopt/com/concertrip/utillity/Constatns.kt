@@ -18,5 +18,7 @@ class Constatns {
         const val FRAGMENT_NOTIFICATION = 5
         const val FRAGMENT_SEARCH_RESULT = 6
         const val FRAGMENT_TICKET = 7
+
+        const val YOUTUBE_API_KEY = ""
     }
 }

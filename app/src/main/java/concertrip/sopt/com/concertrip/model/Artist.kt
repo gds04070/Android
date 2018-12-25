@@ -13,7 +13,7 @@ class Artist {
 
     companion object {
 
-        fun getDummyArray() : ArrayList<Artist>{
+        @JvmStatic fun getDummyArray() : ArrayList<Artist>{
             val list = ArrayList<Artist>()
             for(i in 0..10) {
                 val a = Artist()
