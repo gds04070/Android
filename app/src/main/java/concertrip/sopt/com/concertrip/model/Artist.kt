@@ -14,6 +14,8 @@ class Artist : ListData{
     fun getTag() : String ="#$genre #$genre"
 
 
+    override fun getIndex(): Int = idx
+
     override fun getMainTitle(): String =name
 
     override fun getSubTitle(): String=getTag()

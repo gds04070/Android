@@ -1,6 +1,7 @@
 package concertrip.sopt.com.concertrip.list.adapter
 
 import android.content.Context
+import android.os.Handler
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,6 @@ import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.list.viewholder.ArtistThumbViewHolder
 import concertrip.sopt.com.concertrip.list.viewholder.ArtistViewHolder
 import concertrip.sopt.com.concertrip.list.viewholder.ConcertViewHolder
-import org.jetbrains.anko.startActivity
 
 class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListData>,var type : Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -29,6 +29,8 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
     }
 
     var onClickListener  : View.OnClickListener? = null
+
+    var handler : Handler?=null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -55,6 +57,7 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
 
     override fun getItemCount(): Int = dataList.size
 
+    var h : Handler? =null
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
 
@@ -65,7 +68,21 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
             Glide.with(mContext).load(dataList[position].getImageUrl()).apply(RequestOptions.circleCropTransform())
                 .into(holder.getIvIcon())
         }
-        basicHolder.getBtn()?.setOnClickListener(onClickListener)
+        holder.itemView.setOnClickListener {
+            when (type) {
+                TYPE_ARTIST, TYPE_ARTIST_THUMB -> {
+
+                }
+                TYPE_CONCERT -> {
+
+                }
+
+            }
+        }
+//        basicHolder.getBtn()?.setOnClickListener(onClickListener)
+        basicHolder.getBtn()?.setOnClickListener{
+            handler?.sendEmptyMessage(dataList[position].getIndex())
+        }
 
     }
 

@@ -2,16 +2,14 @@ package concertrip.sopt.com.concertrip.activities.main.adapter
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.util.Log
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.activities.main.fragment.NotificationFragment
+import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.NotificationFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.CalendarFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.MyPageFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.ticket.TicketFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.liked.LikedFragment
-import concertrip.sopt.com.concertrip.activity.main.fragment.search.SearchFragment
 import concertrip.sopt.com.concertrip.activity.main.fragment.search.SearchResultFragment
 import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_CALENDAR
@@ -38,7 +36,8 @@ class MainFragmentAdapter(val fragmentManager: FragmentManager, val mainTab: Tab
     )
 
     private val fragments = arrayOf(
-        CalendarFragment(), SearchResultFragment(), LikedFragment(), MyPageFragment(),TicketFragment(),NotificationFragment(),SearchResultFragment(),TicketFragment()
+        CalendarFragment(), SearchResultFragment(), LikedFragment(), MyPageFragment(),TicketFragment(),
+        NotificationFragment(),SearchResultFragment(),TicketFragment()
     //TicketListFragment는 아직 안만듬. UI확정나면 작업할 예정 임시로 TIcktFragment로 함
     //SearchFragmnt가 없어지고 SearchResultFragment로 임시 대처함
     )

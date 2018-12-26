@@ -1,4 +1,4 @@
-package concertrip.sopt.com.concertrip.activities.main.fragment
+package concertrip.sopt.com.concertrip.activities.main.fragment.calendar
 
 import android.content.Context
 import android.net.Uri
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.model.Alarm
 import concertrip.sopt.com.concertrip.model.Artist
@@ -56,6 +57,31 @@ class NotificationFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_notification, container, false)
     }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //여기서 시작하면
+
+        //TODO 어댑터 추가 구현 BasicListAdapter
+
+        //connc
+    }
+
+    fun connectRequest(){
+        //TODO Retrofit2
+        //OnFaill -> Toast ,  OnSuccess->updateUI
+    }
+
+    fun updateList(dataList : ArrayList<out ListData>){
+        //TODO 1.adapter의 dataList값을 Foreach이용 업데이트
+        //혹은 dataList통째로 바꾸기
+
+        //TODO 2. notifyAdapter
+
+    }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {

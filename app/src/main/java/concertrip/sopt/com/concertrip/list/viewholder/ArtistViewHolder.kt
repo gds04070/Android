@@ -18,4 +18,5 @@ class ArtistViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) , Bas
     val tvTag : TextView = itemView.findViewById(R.id.tv_artist_tag)
     val ivArtist : ImageView = itemView.findViewById(R.id.iv_artist)
     val btnFollow : ImageView = itemView.findViewById(R.id.btn_follow)
+
 }
