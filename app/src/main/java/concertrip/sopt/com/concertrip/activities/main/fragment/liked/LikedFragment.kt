@@ -18,6 +18,7 @@ import com.google.gson.JsonParser
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
+import concertrip.sopt.com.concertrip.activities.info.ConcertActivity
 import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
@@ -158,14 +159,24 @@ class LikedFragment : Fragment() ,View.OnClickListener{
     }
 
 
-    fun buttonClick(idx : Int){
+    fun buttonClick(obj : ListData){
         //TODO
-        startActivity<ArtistActivity>()
+        when(obj){
+            is Artist->{
+                startActivity<ArtistActivity>()
+            }
+            is Concert->{
+                startActivity<ConcertActivity>()
+
+            }
+        }
+
+
     }
 
 
 
-    var curTextView : TextView?=null
+    private var curTextView : TextView?=null
     fun updateTextColor(view : TextView){
         curTextView?.setTextColor(Color.BLACK)
         curTextView=view
@@ -214,7 +225,7 @@ class LikedFragment : Fragment() ,View.OnClickListener{
 
         override fun handleMessage(msg: Message) {
             val f = mFragment.get() as LikedFragment
-            f.buttonClick(msg.what)
+            f.buttonClick(msg.obj as ListData)
         }
     }
 

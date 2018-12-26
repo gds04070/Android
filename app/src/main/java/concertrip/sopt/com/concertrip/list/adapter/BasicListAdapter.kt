@@ -2,6 +2,7 @@ package concertrip.sopt.com.concertrip.list.adapter
 
 import android.content.Context
 import android.os.Handler
+import android.os.Message
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -110,7 +111,9 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
         }
 //        basicHolder.getBtn()?.setOnClickListener(onClickListener)
         basicHolder.getBtn()?.setOnClickListener{
-            handler?.sendEmptyMessage(dataList[position].getIndex())
+            val msg  = Message()
+            msg.obj = dataList[position]
+            handler?.sendMessage(msg)
         }
 
     }
