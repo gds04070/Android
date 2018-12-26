@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.viewholder.CalendarViewHolder
 import concertrip.sopt.com.concertrip.model.Schedule
-import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_BLANK
-import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_DATE
-import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_DAY
+import concertrip.sopt.com.concertrip.utillity.Constants.Companion.CALENDAT_TYPE_BLANK
+import concertrip.sopt.com.concertrip.utillity.Constants.Companion.CALENDAR_TYPE_DATE
+import concertrip.sopt.com.concertrip.utillity.Constants.Companion.CALENDAR_TYPE_DAY
 import java.util.*
 import kotlin.properties.Delegates
 
@@ -30,7 +30,7 @@ class CalendarListAdapter(var mContext: Context, var dataList: ArrayList<String>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
 
         val view = when (viewType) {
-            TYPE_DAY -> {
+            CALENDAR_TYPE_DAY -> {
                 LayoutInflater.from(mContext).inflate(R.layout.li_calendar_day, parent, false)
             }
             else -> {
@@ -46,9 +46,9 @@ class CalendarListAdapter(var mContext: Context, var dataList: ArrayList<String>
 
     override fun getItemViewType(position: Int): Int {
         return when {
-            dataList[position].toIntOrNull() != null -> TYPE_DATE
-            dataList[position].isNotBlank() -> TYPE_DAY
-            else -> TYPE_BLANK
+            dataList[position].toIntOrNull() != null -> CALENDAR_TYPE_DATE
+            dataList[position].isNotBlank() -> CALENDAR_TYPE_DAY
+            else -> CALENDAT_TYPE_BLANK
         }
     }
 
@@ -58,7 +58,7 @@ class CalendarListAdapter(var mContext: Context, var dataList: ArrayList<String>
 
         holder.tvCalendar.text=dataList[position]
 
-        if(getItemViewType(position) == TYPE_DATE) {
+        if(getItemViewType(position) == CALENDAR_TYPE_DATE) {
             val date : Int = dataList[position].toInt()
 
             if(scheduleMap.containsKey(date)){

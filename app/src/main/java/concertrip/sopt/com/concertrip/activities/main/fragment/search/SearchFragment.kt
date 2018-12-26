@@ -97,7 +97,7 @@ class SearchFragment : Fragment() {
 
     private fun updateListArtist(){
         activity?.let {
-            val mAdapter = BasicListAdapter(it.applicationContext, Artist.getDummyArray(),BasicListAdapter.TYPE_ARTIST)
+            val mAdapter = BasicListAdapter(it.applicationContext, Artist.getDummyArray())
             ly_artist_list.adapter = mAdapter
         }
     }
@@ -107,7 +107,7 @@ class SearchFragment : Fragment() {
 
         activity?.let {
 
-            concertListAdapter = BasicListAdapter(it.applicationContext, Concert.getDummyArray(),BasicListAdapter.TYPE_CONCERT)
+            concertListAdapter = BasicListAdapter(it.applicationContext, Concert.getDummyArray())
             ly_concert_list.adapter = concertListAdapter
 
         }
