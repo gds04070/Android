@@ -10,6 +10,7 @@ import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 
@@ -30,6 +31,8 @@ private const val ARG_PARAM2 = "param2"
 class LikedFragment : Fragment() {
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
+
+
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -57,6 +60,9 @@ class LikedFragment : Fragment() {
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
     }
+
+
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

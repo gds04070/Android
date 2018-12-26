@@ -11,9 +11,11 @@ import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
+import concertrip.sopt.com.concertrip.activities.info.ConcertActivity
 import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
+import concertrip.sopt.com.concertrip.list.adapter.HorizontalListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Constants
@@ -40,6 +42,10 @@ class ExplorerFragment : Fragment() {
 
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
+    var dataListTag = arrayListOf<String>()
+
+    lateinit var tagAdapter : HorizontalListAdapter
+    lateinit var dataAdapter : BasicListAdapter
 
     var onItemClickListener : View.OnClickListener = View.OnClickListener {
         startActivity<ArtistActivity>()
@@ -81,27 +87,33 @@ class ExplorerFragment : Fragment() {
     fun connectRequestData(){
         //TODO onFail -> Toast, OnSuccess->uodateDataList()
     }
-    fun updateTagList(dataList : ArrayList<out ListData>){
+    fun updateTagList(dataList : ArrayList<String>){
+
         //TODO 1.adapter의 dataList값을 Foreach이용 업데이트
         //혹은 dataList통째로 바꾸기
 
-
         //TODO 2. notifyAdapter
+        val position = tagAdapter.itemCount
+        tagAdapter.dataList.clear()
+        dataList.forEach {  tagAdapter.dataList.add(it)}
 
+        tagAdapter.notifyDataSetChanged()
     }
 
     fun updateDataList(dataList : ArrayList<out ListData>){
         //TODO 1.adapter의 dataList값을 Foreach이용 업데이트
         //혹은 dataList통째로 바꾸기
 
-        val adapter = BasicListAdapter(activity!!.applicationContext, dataListArtist, BasicListAdapter.TYPE_ARTIST)
-        adapter.handler = HandlerClick(this)
-
+        dataAdapter.handler = HandlerClick(this)
+        val position = dataAdapter.itemCount
         //TODO 2. adapter에 Listener 추가
 
 
         //TODO 3. notifyAdapter
 
+        //dataList.forEach { dataAdapter.dataList.add() }
+
+        dataAdapter.notifyDataSetChanged()
     }
 
 
@@ -111,10 +123,25 @@ class ExplorerFragment : Fragment() {
 
     fun buttonClick(idx : Int){
         //TODO startActivity with index
+
     }
 
     private fun initialUI(){
         //TODO 검색버튼 눌렀을 경우 세팅
+
+
+
+
+        tagAdapter = HorizontalListAdapter(activity!!.applicationContext, dataListTag)
+
+        recycler_view_horizontal.adapter = tagAdapter
+
+
+        dataAdapter = BasicListAdapter(activity!!.applicationContext, dataListArtist, BasicListAdapter.TYPE_ARTIST)
+
+        ly_station.adapter = dataAdapter
+
+
 
 
         //이거는 지워질 경우

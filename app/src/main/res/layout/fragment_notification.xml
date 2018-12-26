@@ -13,15 +13,14 @@
             android:lineSpacingExtra="12sp"
             tools:text="알림"
             android:textStyle="bold"
-            android:layout_marginTop="49.6dp"
-            android:layout_marginLeft="16.9dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginVertical="30dp"
     />
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="43.9dp">
+            android:layout_height="wrap_content">
 
     </android.support.v7.widget.RecyclerView>
 

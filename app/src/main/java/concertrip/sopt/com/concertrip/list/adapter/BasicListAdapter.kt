@@ -24,6 +24,8 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
         val TYPE_ARTIST_THUMB =1
         val TYPE_CONCERT=2
         val TYPE_ALARM=3
+        val TYPE_LIKED = 4
+        val TYPE_TICKET = 5
 
 
     }
