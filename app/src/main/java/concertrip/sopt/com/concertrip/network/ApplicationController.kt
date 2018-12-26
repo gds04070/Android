@@ -6,7 +6,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApplicationController : Application(){
 
-    private val baseURL = ""
+    private val baseURL = USGS_REQUEST_URL.URL_ROOT
+
     lateinit var networkService: NetworkService
 
     companion object {
@@ -17,6 +18,7 @@ class ApplicationController : Application(){
     override fun onCreate() {
         super.onCreate()
         instance = this
+        buildNetWork()
 
     }
 

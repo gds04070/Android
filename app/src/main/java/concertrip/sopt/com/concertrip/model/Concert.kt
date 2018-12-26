@@ -1,6 +1,7 @@
 package concertrip.sopt.com.concertrip.model
 
 import concertrip.sopt.com.concertrip.interfaces.ListData
+import concertrip.sopt.com.concertrip.utillity.Constants
 
 class Concert : ListData {
 
@@ -18,6 +19,9 @@ class Concert : ListData {
 
     fun getTag() : String ="#$genre #$genre"
 
+
+
+    override fun getType(): Int = Constants.TYPE_CONCERT
 
     override fun getIndex(): Int = idx
 

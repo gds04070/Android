@@ -94,7 +94,7 @@ class ExplorerFragment : Fragment() {
         //TODO 1.adapter의 dataList값을 Foreach이용 업데이트
         //혹은 dataList통째로 바꾸기
 
-        val adapter = BasicListAdapter(activity!!.applicationContext, dataListArtist, BasicListAdapter.TYPE_ARTIST)
+        val adapter = BasicListAdapter(activity!!.applicationContext, dataListArtist)
         adapter.handler = HandlerClick(this)
 
         //TODO 2. adapter에 Listener 추가

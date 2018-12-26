@@ -26,7 +26,7 @@ class ConcertActivity : AppCompatActivity(){
 //        setSupportActionBar(toolbar)
 
 //        val mAdapter = ArtistThumbListAdapter(this, Artist.getDummyArray())
-        val mAdapter = BasicListAdapter(this, Artist.getDummyArray(),BasicListAdapter.TYPE_CONCERT)
+        val mAdapter = BasicListAdapter(this, Artist.getDummyArray())
         recycler_view.adapter = mAdapter
 
     }

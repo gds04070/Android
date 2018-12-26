@@ -26,7 +26,7 @@ class ArtistActivity : AppCompatActivity() {
 //        setSupportActionBar(toolbar)
 
 //        val mAdapter = ConcertListAdapter(this, Concert.getDummyArray())
-        val mAdapter = BasicListAdapter(this, Concert.getDummyArray(),BasicListAdapter.TYPE_ARTIST)
+        val mAdapter = BasicListAdapter(this, Concert.getDummyArray())
         mAdapter.onClickListener=onListItemClickListener
         recycler_view.adapter = mAdapter
 
