@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.fragment.calendar.adapter.CalendarListAdapter
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
+import concertrip.sopt.com.concertrip.interfaces.OnHorizontalItemClick
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.model.Schedule
@@ -36,7 +37,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class CalendarFragment : Fragment() {
+class CalendarFragment : Fragment(), OnHorizontalItemClick {
 
     var dataListFilter = arrayListOf<String>()
     var dataListArtist = arrayListOf<Artist>()
@@ -57,6 +58,14 @@ class CalendarFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+
+    override fun onClick(idx: Int) {
+        /*TODO have to implement it*/
+        // 태그 중 하나를 클릭하면 서버에서 그 태그에 알맞는 일정을 받아오기 위한 함수!
+        // 여기서 사용하는 HorixzontalListAdapter에서 사용하며
+        // holder.itemView.setOnClickListener에 달아뒀음!
+        // 클릭된 아이템의 position 값이 parameter로 전달됨!
+    }
 
     fun artistToCal(artist: Artist) {
         /*TODO have to implement it*/

@@ -34,6 +34,11 @@ class Constants {
         const val FRAGMENT_SEARCH = 6
         const val FRAGMENT_TICKET = 7
 
+        const val TYPE_ARTIST = 0
+        const val TYPE_ARTIST_THUMB =1
+        const val TYPE_CONCERT=2
+        const val TYPE_ALARM=3
+
         const val YOUTUBE_API_KEY = ""
     }
 }

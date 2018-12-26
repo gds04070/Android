@@ -32,5 +32,7 @@ class ArtistActivity : AppCompatActivity() {
 
     }
 
-
+    companion object {
+        fun newInstance(): ArtistActivity = ArtistActivity()
+    }
 }

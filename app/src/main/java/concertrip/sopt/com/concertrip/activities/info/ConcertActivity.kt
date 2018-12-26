@@ -31,4 +31,7 @@ class ConcertActivity : AppCompatActivity(){
 
     }
 
+    companion object {
+        fun newInstance(): ConcertActivity = ConcertActivity()
+    }
 }
