@@ -1,4 +1,4 @@
-package concertrip.sopt.com.concertrip.activity.main.fragment.search
+package concertrip.sopt.com.concertrip.activities.main.fragment.search
 
 import android.content.Context
 import android.os.Bundle
@@ -11,8 +11,6 @@ import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
-import concertrip.sopt.com.concertrip.activities.main.fragment.search.SearchFragment
-import concertrip.sopt.com.concertrip.interfaces.BasicListViewHolder
 import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
@@ -20,6 +18,7 @@ import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Constants
 import kotlinx.android.synthetic.main.fragment_explorer.*
+import kotlinx.android.synthetic.main.fragment_search.*
 import org.jetbrains.anko.support.v4.startActivity
 import java.lang.ref.WeakReference
 
@@ -31,9 +30,9 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [SearchFragment.OnFragmentInteractionListener] interface
+ * [Explorer.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [SearchFragment.newInstance] factory method to
+ * Use the [Explorer.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
@@ -107,7 +106,7 @@ class ExplorerFragment : Fragment() {
 
 
     fun changeFragment(){
-        listener?.changeFragment(Constants.FRAGMENT_SEARCH_RESULT)
+        listener?.changeFragment(Constants.FRAGMENT_SEARCH)
     }
 
     fun buttonClick(idx : Int){
