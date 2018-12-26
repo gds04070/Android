@@ -23,9 +23,9 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [SearchResultFragment.OnFragmentInteractionListener] interface
+ * [SearchFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [SearchResultFragment.newInstance] factory method to
+ * Use the [SearchFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */

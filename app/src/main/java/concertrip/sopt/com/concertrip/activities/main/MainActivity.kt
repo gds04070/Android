@@ -15,6 +15,7 @@ import kotlin.properties.Delegates
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.main.adapter.MainFragmentAdapter
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_CALENDAR
+import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_EXPLORER
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_LIKED
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_MY_PAGE
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_SEARCH
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
                         fragmentAdapter.setFragment(FRAGMENT_CALENDAR)
                     }
                     Constants.TAB_SEARCH->{
-                        fragmentAdapter.setFragment(FRAGMENT_SEARCH)
+                        fragmentAdapter.setFragment(FRAGMENT_EXPLORER)
                     }
                     Constants.TAB_LIKED->{
                         fragmentAdapter.setFragment(FRAGMENT_LIKED)
@@ -93,7 +94,7 @@ class MainActivity : AppCompatActivity() , OnFragmentInteractionListener {
                     Constants.FRAGMENT_CALENDAR, Constants.FRAGMENT_NOTIFICATION -> {
                         fragmentAdapter.setTab(TAB_CALENDAR)
                     }
-                    Constants.FRAGMENT_SEARCH_RESULT, Constants.FRAGMENT_SEARCH -> {
+                    Constants.FRAGMENT_EXPLORER, Constants.FRAGMENT_SEARCH -> {
                         fragmentAdapter.setTab(TAB_SEARCH)
                     }
                     Constants.TAB_LIKED -> {
