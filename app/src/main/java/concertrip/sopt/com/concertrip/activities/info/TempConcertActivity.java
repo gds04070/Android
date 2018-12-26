@@ -19,7 +19,7 @@ import concertrip.sopt.com.concertrip.model.Artist;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import static concertrip.sopt.com.concertrip.utillity.Constatns.YOUTUBE_API_KEY;
+import static concertrip.sopt.com.concertrip.utillity.Constants.YOUTUBE_API_KEY;
 
 public class TempConcertActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
     private static final int RECOVERY_DIALOG_REQUEST = 1;
