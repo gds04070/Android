@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.R.id.btn_more_station
 import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
 import concertrip.sopt.com.concertrip.activities.main.fragment.search.SearchFragment
 import concertrip.sopt.com.concertrip.interfaces.BasicListViewHolder
@@ -111,17 +112,17 @@ class ExplorerFragment : Fragment() {
     }
 
     fun buttonClick(idx : Int){
-        //TODO startActivity with index
+        //TODO startActivity
+        // convert to ArtistActivity
+        // or ConcertActivity
+
+        // which need idx
+
     }
 
     private fun initialUI(){
         //TODO 검색버튼 눌렀을 경우 세팅
-
-
-        //이거는 지워질 경우
-        btn_more_station.setOnClickListener {
-            changeFragment()
-        }
+        // convert to SearchFragment
     }
 
 
