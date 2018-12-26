@@ -175,8 +175,11 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
             changeFragment()
         }
 
-        adapter = BasicListAdapter(activity!!.applicationContext, dataListArtist, BasicListAdapter.TYPE_ARTIST)
-        adapter.handler = HandlerClick(this)
+        activity?.let {
+            adapter = BasicListAdapter(it.applicationContext, dataListArtist)
+            adapter.handler = HandlerClick(this)
+        }
+
     }
 
 
