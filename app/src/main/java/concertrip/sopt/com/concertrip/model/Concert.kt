@@ -18,6 +18,9 @@ class Concert : ListData {
 
     fun getTag() : String ="#$genre #$genre"
 
+
+    override fun getIndex(): Int = idx
+
     override fun getMainTitle(): String =title
 
     override fun getSubTitle(): String =getTag()

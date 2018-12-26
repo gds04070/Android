@@ -3,6 +3,8 @@ package concertrip.sopt.com.concertrip.activities.info
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
+import android.view.View
+import com.google.android.youtube.player.internal.v
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
@@ -10,7 +12,7 @@ import concertrip.sopt.com.concertrip.model.Concert
 
 import kotlinx.android.synthetic.main.content_concert.*
 
-class ConcertActivity : AppCompatActivity() {
+class ConcertActivity : AppCompatActivity(){
 
     var concert : Concert = Concert()
     var dataList = arrayListOf<Artist>() // 이것도 서버에서 한번에 concert에 넣어서 전달해줄지도 모름!!

@@ -196,7 +196,7 @@ package concertrip.sopt.com.concertrip.deprecated
 //                }
 //            }
 //
-//            convertView.setOnClickListener { _ ->
+//            convertView.setOnItemClickListener { _ ->
 //                val s = Schedule.getDummy(date)
 //                if(scheduleMap[it].isNullOrEmpty()){
 //                    scheduleMap[it]=ArrayList<Schedule>()
