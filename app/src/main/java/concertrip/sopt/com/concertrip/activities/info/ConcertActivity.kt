@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.list.adapter.ArtistThumbListAdapter
+import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 
@@ -23,7 +23,8 @@ class ConcertActivity : AppCompatActivity() {
         setContentView(R.layout.activity_concert)
 //        setSupportActionBar(toolbar)
 
-        val mAdapter = ArtistThumbListAdapter(this, Artist.getDummyArray())
+//        val mAdapter = ArtistThumbListAdapter(this, Artist.getDummyArray())
+        val mAdapter = BasicListAdapter(this, Artist.getDummyArray(),BasicListAdapter.TYPE_CONCERT)
         recycler_view.adapter = mAdapter
 
     }

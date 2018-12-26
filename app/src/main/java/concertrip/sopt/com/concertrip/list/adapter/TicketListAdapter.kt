@@ -10,8 +10,8 @@ import concertrip.sopt.com.concertrip.list.viewholder.TicketViewHolder
 import concertrip.sopt.com.concertrip.model.Ticket
 
 class TicketListAdapter(val mContext : Context, var dataList : ArrayList<Ticket>)  : RecyclerView.Adapter<TicketViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): TicketViewHolder {
-        var view : View = LayoutInflater.from(mContext).inflate(R.layout.li_ticket, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TicketViewHolder {
+        val view : View = LayoutInflater.from(mContext).inflate(R.layout.li_ticket, parent, false)
         return TicketViewHolder(view)
     }
 

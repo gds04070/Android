@@ -120,6 +120,9 @@ class Schedule(var date: Int, var text: String) {
 
 
         }
+        fun getDummyMap() : HashMap<Int, ArrayList<Schedule>>{
+            return toMap(getDummyList())
+        }
         fun toMap(list : ArrayList<Schedule>) : HashMap<Int, ArrayList<Schedule>>{
             val  map  = HashMap<Int, ArrayList<Schedule>>()
             list.forEach {
