@@ -9,6 +9,7 @@ import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
+import concertrip.sopt.com.concertrip.activities.info.TempConcertActivity
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 
 import concertrip.sopt.com.concertrip.utillity.Constants
@@ -59,7 +60,7 @@ class MyPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_more.setOnClickListener {
-            startActivity<ArtistActivity>()
+            startActivity<TempConcertActivity>()
         }
     }
 

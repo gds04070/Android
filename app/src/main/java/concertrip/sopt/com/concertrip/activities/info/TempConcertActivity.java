@@ -13,6 +13,7 @@ import com.google.android.youtube.player.YouTubeApiServiceUtil;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 
 import concertrip.sopt.com.concertrip.R;
+import concertrip.sopt.com.concertrip.list.adapter.ArtistThumbListAdapter;
 import concertrip.sopt.com.concertrip.model.Artist;
 
 import java.lang.reflect.Array;
@@ -28,9 +29,9 @@ public class TempConcertActivity extends YouTubeBaseActivity implements YouTubeP
         super.onCreate(bundle);
         setContentView(R.layout.activity_concert);
 
-//        ArtistThumbListAdapter mAdapter = ArtistThumbListAdapter(this, new Artist.getDummyArray());
-//        RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-//        mRecyclerView.setAdapter(mAdapter);
+        ArtistThumbListAdapter mAdapter = new ArtistThumbListAdapter(this, Artist.getDummyArray());
+        RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        mRecyclerView.setAdapter(mAdapter);
 
         getYouTubePlayerProvider().initialize(YOUTUBE_API_KEY,this);
     }
