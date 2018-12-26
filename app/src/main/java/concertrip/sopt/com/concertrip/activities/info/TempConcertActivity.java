@@ -13,7 +13,6 @@ import com.google.android.youtube.player.YouTubeApiServiceUtil;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 
 import concertrip.sopt.com.concertrip.R;
-import concertrip.sopt.com.concertrip.list.adapter.ArtistThumbListAdapter;
 import concertrip.sopt.com.concertrip.model.Artist;
 
 import java.lang.reflect.Array;

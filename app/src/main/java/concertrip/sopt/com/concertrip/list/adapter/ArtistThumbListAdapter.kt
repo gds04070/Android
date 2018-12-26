@@ -22,7 +22,7 @@ import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
 import org.jetbrains.anko.startActivity
 
 class ArtistThumbListAdapter(var mContext : Context, var dataList: ArrayList<Artist>) : RecyclerView.Adapter<ArtistThumbViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): ArtistThumbViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistThumbViewHolder {
         val view = LayoutInflater.from(mContext).inflate(R.layout.li_artist_thumb, parent, false)
         return ArtistThumbViewHolder(view)
     }

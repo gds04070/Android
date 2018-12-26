@@ -11,8 +11,8 @@ import concertrip.sopt.com.concertrip.list.viewholder.HorizontalVIewHolder
 
 class HorizontalListAdapter(val mContext : Context, var dataList: ArrayList<String>) : RecyclerView.Adapter<HorizontalVIewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): HorizontalVIewHolder {
-        var view : View = LayoutInflater.from(mContext).inflate(R.layout.li_tag, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalVIewHolder {
+        val view : View = LayoutInflater.from(mContext).inflate(R.layout.li_tag, parent, false)
         return HorizontalVIewHolder(view)
 
     }

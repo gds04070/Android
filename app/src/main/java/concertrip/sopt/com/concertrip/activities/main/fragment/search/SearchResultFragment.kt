@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.list.adapter.ArtistListAdapter
+import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.list.adapter.ConcertListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
@@ -41,7 +42,7 @@ class SearchResultFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
 
-    lateinit var concertListAdapter: ConcertListAdapter
+    lateinit var concertListAdapter: BasicListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +76,7 @@ class SearchResultFragment : Fragment() {
 
     private fun setArtistRecyclerView(){
         activity?.let {
-            val mAdapter = ArtistListAdapter(it.applicationContext, Artist.getDummyArray())
+            val mAdapter = BasicListAdapter(it.applicationContext, Artist.getDummyArray(),BasicListAdapter.TYPE_ARTIST)
             ly_artist_list.adapter = mAdapter
         }
     }
@@ -85,7 +86,7 @@ class SearchResultFragment : Fragment() {
 
         activity?.let {
 
-            concertListAdapter = ConcertListAdapter(it.applicationContext, Concert.getDummyArray())
+            concertListAdapter = BasicListAdapter(it.applicationContext, Concert.getDummyArray(),BasicListAdapter.TYPE_CONCERT)
             ly_concert_list.adapter = concertListAdapter
 
         }

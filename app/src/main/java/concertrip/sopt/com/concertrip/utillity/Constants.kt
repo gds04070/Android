@@ -9,6 +9,10 @@ class Constants {
 
 
 
+        const val TYPE_DAY = 0
+        const val TYPE_BLANK = 1
+        const val TYPE_DATE = 2
+
 
 
         const val FRAGMENT_CALENDAR = 0

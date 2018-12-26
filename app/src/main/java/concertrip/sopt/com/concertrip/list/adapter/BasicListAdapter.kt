@@ -25,12 +25,13 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
         val TYPE_CONCERT=2
         val TYPE_ALARM=3
 
+
     }
 
     var onClickListener  : View.OnClickListener? = null
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         when(type){
             TYPE_ARTIST->{
