@@ -9,7 +9,7 @@ import concertrip.sopt.com.concertrip.R
 import concertrip.sopt.com.concertrip.interfaces.BasicListViewHolder
 
 class ArtistThumbViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) , BasicListViewHolder{
-    override fun getMainTitle(): TextView =tvArtist
+        override fun getMainTitle(): TextView =tvArtist
 
     override fun getSubTitle(): TextView?=null
     override fun getBtn(): View? =null

@@ -12,6 +12,7 @@ import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.ticket.Tic
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.ticket.TicketListFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.search.SearchFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.liked.LikedFragment
+import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.SettingFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.search.ExplorerFragment
 import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_CALENDAR
@@ -39,7 +40,7 @@ class MainFragmentAdapter(val fragmentManager: FragmentManager, val mainTab: Tab
 
     private val fragments = arrayOf(
         CalendarFragment(), ExplorerFragment(), LikedFragment(), MyPageFragment(),TicketFragment(),
-        NotificationFragment(),SearchFragment(),TicketFragment()
+        NotificationFragment(),SearchFragment(),TicketFragment(),SettingFragment()
     //TicketListFragment는 아직 안만듬. UI확정나면 작업할 예정 임시로 TIcktFragment로 함
     //SearchFragmnt가 없어지고 SearchResultFragment로 임시 대처함
     )
