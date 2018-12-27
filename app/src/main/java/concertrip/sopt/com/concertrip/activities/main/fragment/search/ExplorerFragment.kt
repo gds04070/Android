@@ -25,6 +25,7 @@ import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_ARTIST
 import kotlinx.android.synthetic.main.fragment_explorer.*
+import kotlinx.android.synthetic.main.li_tag.*
 import org.jetbrains.anko.support.v4.toast
 import java.lang.ref.WeakReference
 
@@ -108,7 +109,7 @@ class ExplorerFragment : Fragment(), OnItemClick {
     }
 
     override fun onItemClick(root: RecyclerView.Adapter<out RecyclerView.ViewHolder>,idx: Int) {
-
+        tagAdapter.setSeleted(idx)
 
         if(root is HorizontalListAdapter)
             toast("!!!!!!! $idx")
