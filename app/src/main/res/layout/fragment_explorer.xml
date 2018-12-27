@@ -37,9 +37,11 @@
                 >
 
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/ly_station"
+                    android:id="@+id/recycler_view"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            >
             </android.support.v7.widget.RecyclerView>
             <TextView
                     android:id="@+id/btn_more_station"

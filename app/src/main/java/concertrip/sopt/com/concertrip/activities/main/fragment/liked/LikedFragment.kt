@@ -118,7 +118,7 @@ class LikedFragment : Fragment() ,View.OnClickListener{
 
         activity?.let {
             adapter= BasicListAdapter(it.applicationContext, dataList)
-            adapter.handler = HandlerClick(this)
+
             recycler_view.adapter=adapter
         }
 
@@ -149,6 +149,7 @@ class LikedFragment : Fragment() ,View.OnClickListener{
 
 
     private fun updateDataList(list : ArrayList<out ListData>){
+
 
 
         this.dataList.clear()
@@ -218,15 +219,6 @@ class LikedFragment : Fragment() ,View.OnClickListener{
     }
 
 
-
-    private class HandlerClick(fragment: Fragment) : Handler() {
-        private val mFragment: WeakReference<Fragment> = WeakReference<Fragment>(fragment)
-
-        override fun handleMessage(msg: Message) {
-            val f = mFragment.get() as LikedFragment
-            f.buttonClick(msg.obj as ListData)
-        }
-    }
 
     companion object {
         /**

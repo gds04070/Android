@@ -6,26 +6,26 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.support.v4.app.Fragment
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 
 import concertrip.sopt.com.concertrip.R
-import concertrip.sopt.com.concertrip.R.id.btn_more_station
 import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
 import concertrip.sopt.com.concertrip.activities.info.ConcertActivity
 import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
-import concertrip.sopt.com.concertrip.interfaces.OnHorizontalItemClick
+import concertrip.sopt.com.concertrip.interfaces.OnItemClick
 import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.list.adapter.HorizontalListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_ARTIST
-import kotlinx.android.synthetic.main.content_concert.*
 import kotlinx.android.synthetic.main.fragment_explorer.*
-import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 import java.lang.ref.WeakReference
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,26 +42,21 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class ExplorerFragment : Fragment(), OnHorizontalItemClick {
+class ExplorerFragment : Fragment(), OnItemClick {
 
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
-    var dataListTag = arrayListOf<String>()
+    var dataListTag = arrayListOf<String>("1","2","3","4","5")
 
     lateinit var tagAdapter : HorizontalListAdapter
     lateinit var dataAdapter : BasicListAdapter
 
-    var onItemClickListener : View.OnClickListener = View.OnClickListener {
-        startActivity<ArtistActivity>()
-    }
+    private var listener: OnFragmentInteractionListener? = null
 
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
-    private lateinit var adapter : BasicListAdapter
-    private lateinit var dataListTag : ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -112,7 +107,14 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
 //        })
     }
 
-    override fun onClick(idx: Int) {
+    override fun onItemClick(root: RecyclerView.Adapter<out RecyclerView.ViewHolder>,idx: Int) {
+
+
+        if(root is HorizontalListAdapter)
+            toast("!!!!!!! $idx")
+        else
+            toast("?????????? $idx")
+
         if(idx == 1){
             // 테마를 선택한 경우 안드 내부에 저장되어있는 것을 출력
             // 해당 데이터가 저장된 어레이를 이용해 updateDataList 함수 호출
@@ -148,7 +150,6 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
         //TODO 1.adapter의 dataList값을 Foreach이용 업데이트
         //혹은 dataList통째로 바꾸기
 
-        dataAdapter.handler = HandlerClick(this)
         val position = dataAdapter.itemCount
         //TODO 2. adapter에 Listener 추가
 
@@ -165,19 +166,6 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
         listener?.changeFragment(Constants.FRAGMENT_SEARCH)
     }
 
-    fun buttonClick(idx : Int, type : Int){
-        var intent : Intent
-
-        if(type == TYPE_ARTIST)
-            intent = Intent(activity, ArtistActivity::class.java)
-        else
-            intent = Intent(activity, ConcertActivity::class.java)
-
-        intent.putExtra("idx",idx)
-        startActivity(intent)
-
-        // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-    }
 
     private fun initialUI(){
         // convert to SearchFragment
@@ -186,8 +174,15 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
         }
 
         activity?.let {
-            adapter = BasicListAdapter(it.applicationContext, dataListArtist)
-            adapter.handler = HandlerClick(this)
+
+            tagAdapter = HorizontalListAdapter(it.applicationContext, dataListTag,this)
+            recycler_view_horizontal.adapter=tagAdapter
+
+
+            dataListArtist=Artist.getDummyArray()
+            dataAdapter = BasicListAdapter(it.applicationContext, dataListArtist,this)
+            recycler_view.adapter = dataAdapter
+
         }
 
     }
@@ -211,16 +206,6 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
 
 
 
-    private class HandlerClick(fragment: Fragment) : Handler() {
-        private val mFragment: WeakReference<Fragment> = WeakReference<Fragment>(fragment)
-
-        override fun handleMessage(msg: Message) {
-            val f = mFragment.get() as ExplorerFragment
-
-            /*TODO 핸들러를 통해서 type도 받고싶습니다!*/
-            //f.buttonClick(msg.what, ) // type도 받고싶습니다!!
-        }
-    }
 
     companion object {
         /**

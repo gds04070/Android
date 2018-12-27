@@ -66,6 +66,7 @@ class ConcertActivity  : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListe
     // >> 디비 완전히 나오면 나중에 더 추가하거나 제거할 예정
 
 
+    //TODO OnItemClick Interface로 구현
     var onListItemClickListener : View.OnClickListener = View.OnClickListener {
         startActivity<ArtistActivity>()
     }
@@ -77,7 +78,6 @@ class ConcertActivity  : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListe
 
 //        val mAdapter = ArtistThumbListAdapter(this, Artist.getDummyArray())
         val mAdapter = BasicListAdapter(this, Artist.getDummyArray())
-        mAdapter.onClickListener=onListItemClickListener
         recycler_view.adapter = mAdapter
 
 
