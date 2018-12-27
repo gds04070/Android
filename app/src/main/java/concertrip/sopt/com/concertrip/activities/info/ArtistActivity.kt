@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
 import android.view.View
+import android.widget.ScrollView
 import android.widget.Toast
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
@@ -17,6 +19,7 @@ import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Secret
+import kotlinx.android.synthetic.main.activity_artist.*
 
 import kotlinx.android.synthetic.main.content_artist.*
 import org.jetbrains.anko.startActivity
@@ -77,7 +80,7 @@ class ArtistActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
 
 
         getYouTubePlayerProvider().initialize(Secret.YOUTUBE_API_KEY,this);
-
+        scroll_view.smoothScrollTo(0,0)
     }
 
     companion object {

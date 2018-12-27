@@ -7,10 +7,9 @@
               android:layout_marginHorizontal="16dp"
               tools:context=".activities.main.fragment.search.ExplorerFragment">
 
-    <EditText
+    <Button
             android:id="@+id/search_bar"
             android:layout_marginTop="8dp"
-
             android:background="#b4b4b5"
             android:layout_width="match_parent"
             android:layout_height="35dp"/>

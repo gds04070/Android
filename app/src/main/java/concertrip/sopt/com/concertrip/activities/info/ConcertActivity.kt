@@ -16,6 +16,7 @@ import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
 import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Secret
+import kotlinx.android.synthetic.main.activity_concert.*
 
 import kotlinx.android.synthetic.main.content_concert.*
 import org.jetbrains.anko.startActivity
@@ -82,7 +83,7 @@ class ConcertActivity  : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListe
 
 
         getYouTubePlayerProvider().initialize(Secret.YOUTUBE_API_KEY,this);
-
+        scroll_view.smoothScrollTo(0,0)
     }
 
 

@@ -25,6 +25,7 @@ import concertrip.sopt.com.concertrip.model.Concert
 import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_ARTIST
 import kotlinx.android.synthetic.main.fragment_explorer.*
+import kotlinx.android.synthetic.main.li_tag.*
 import org.jetbrains.anko.support.v4.toast
 import java.lang.ref.WeakReference
 
@@ -46,7 +47,7 @@ class ExplorerFragment : Fragment(), OnItemClick {
 
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
-    var dataListTag = arrayListOf<String>("1","2","3","4","5")
+    var dataListTag = arrayListOf<String>("모두","테마","걸그룹","보이그룹","힙합","발라드")
 
     lateinit var tagAdapter : HorizontalListAdapter
     lateinit var dataAdapter : BasicListAdapter
@@ -108,7 +109,7 @@ class ExplorerFragment : Fragment(), OnItemClick {
     }
 
     override fun onItemClick(root: RecyclerView.Adapter<out RecyclerView.ViewHolder>,idx: Int) {
-
+        tagAdapter.setSeleted(idx)
 
         if(root is HorizontalListAdapter)
             toast("!!!!!!! $idx")
