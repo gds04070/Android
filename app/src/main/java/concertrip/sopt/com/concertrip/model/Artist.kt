@@ -13,7 +13,7 @@ class Artist : ListData{
     var genre : String = ""
     var youtubeUrl : String = ""
 
-    fun getTag() : String ="#$genre #$genre"
+    private fun getTag() : String ="#$genre #$genre"
 
 
     override fun getType(): Int = Constants.TYPE_ARTIST
@@ -30,7 +30,7 @@ class Artist : ListData{
 
         @JvmStatic fun getDummyArray() : ArrayList<Artist>{
             val list = ArrayList<Artist>()
-            for(i in 0..10) {
+            for(i in 0..5) {
                 val a = Artist()
                 a.name="지코#i"
                 a.idx=i

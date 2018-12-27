@@ -7,8 +7,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 
 import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.interfaces.OnFragmentInteractionListener
 import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
 import concertrip.sopt.com.concertrip.model.Artist
@@ -31,18 +33,24 @@ private const val ARG_PARAM2 = "param2"
  */
 class SearchFragment : Fragment() {
 
+    //var dataList = arrayListOf<ListData>()
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
+
+    var adapter : BasicListAdapter?= null
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+
+
     private var searchTxt : String=""
 
 
     lateinit var concertListAdapter: BasicListAdapter
+    lateinit var artistListAdapter: BasicListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,30 +73,62 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialUI()
+        connectRequestData()
 
 
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
-    fun initialUI(){
-        //TODO btn 이벤트 추가. 검색 내용을 conncetRequestData()
-
-        //TODO 추가요청하기 버튼 이벤트 구현  -> Toast만 띄우기!
 
     }
-    fun connectRequestData(){
-        //TODO updateListData()
+
+
+    private fun initialUI(){
+
+
+        activity?.let {
+
+            concertListAdapter = BasicListAdapter(it.applicationContext,dataListConcert)
+            recycler_view_concert.adapter=concertListAdapter
+
+            artistListAdapter = BasicListAdapter(it.applicationContext,dataListArtist)
+            recycler_view_artist.adapter=artistListAdapter
+        }
+
+
+        btn_search.setOnClickListener {
+
+            connectRequestData()
+        }
 
     }
-    fun updateUI(obj : Any){
+    private fun connectRequestData(){
+        searchTxt = edt_search.text.toString()
+        tv_result_no.text=("'$searchTxt' ${getString(R.string.txt_result_no)}")
+        tv_result_add.text=("'$searchTxt' ${getString(R.string.txt_result_add)}")
+
+
+        //임시 처리
+        dataListArtist.clear()
+        dataListConcert.clear()
+        if(searchTxt.length>10) {
+            dataListArtist.addAll(Artist.getDummyArray())
+            dataListConcert.addAll(Concert.getDummyArray())
+        }
+        else if(searchTxt.length>5) {
+            dataListConcert.addAll(Concert.getDummyArray())
+        }
+
+        updateUI()
+
+    }
+    private fun updateUI(){
         //TODO 1. obj의 결과가 아무것도 없는지 확인
-
         //없으면 visibility를 GONE, ~~~대한 결과가 없습니다. update해줘야함.
 
         //아니면 ↓
+        if(dataListArtist.size+dataListConcert.size==0)
+            search_result.visibility=View.GONE
+        else
+            search_result.visibility=View.VISIBLE
+
         updateListArtist()
         updateListConcert()
 //      updateListTheme()
@@ -96,21 +136,16 @@ class SearchFragment : Fragment() {
 
 
     private fun updateListArtist(){
-        activity?.let {
-            val mAdapter = BasicListAdapter(it.applicationContext, Artist.getDummyArray())
-            ly_artist_list.adapter = mAdapter
-        }
+
+        artistListAdapter.notifyDataSetChanged()
+
     }
 
 
     private fun updateListConcert(){
 
-        activity?.let {
+        concertListAdapter.notifyDataSetChanged()
 
-            concertListAdapter = BasicListAdapter(it.applicationContext, Concert.getDummyArray())
-            ly_concert_list.adapter = concertListAdapter
-
-        }
     }
 
     override fun onAttach(context: Context) {

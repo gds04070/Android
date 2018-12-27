@@ -35,7 +35,7 @@ class Concert : ListData {
     companion object {
         fun getDummyArray() : ArrayList<Concert>{
             val list = ArrayList<Concert>()
-            for(i in 0..10) {
+            for(i in 0..5) {
                 val c = Concert()
                 c.title="힙합 페스티발"
                 c.idx=i

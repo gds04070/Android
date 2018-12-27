@@ -19,7 +19,6 @@ class ApplicationController : Application(){
         super.onCreate()
         instance = this
         buildNetWork()
-
     }
 
 

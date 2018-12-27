@@ -11,6 +11,7 @@ import retrofit2.http.*
 interface NetworkService {
 
 
+
     //POST 타입 JSONObject로 받을때 테스트 //테스트
     @Headers("Content-Type:application/json")
     @POST("/auth/register/check")
