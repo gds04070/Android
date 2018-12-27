@@ -26,4 +26,6 @@ class TicketListAdapter(val mContext : Context, var dataList : ArrayList<Ticket>
 
         }
     }
+
+
 }

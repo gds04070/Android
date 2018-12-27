@@ -18,10 +18,7 @@ import concertrip.sopt.com.concertrip.activities.info.ConcertActivity
 import concertrip.sopt.com.concertrip.interfaces.BasicListViewHolder
 import concertrip.sopt.com.concertrip.interfaces.ListData
 import concertrip.sopt.com.concertrip.interfaces.OnItemClick
-import concertrip.sopt.com.concertrip.list.viewholder.AlarmViewHolder
-import concertrip.sopt.com.concertrip.list.viewholder.ArtistThumbViewHolder
-import concertrip.sopt.com.concertrip.list.viewholder.ArtistViewHolder
-import concertrip.sopt.com.concertrip.list.viewholder.ConcertViewHolder
+import concertrip.sopt.com.concertrip.list.viewholder.*
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_ALARM
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_ARTIST
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_CONCERT
@@ -71,7 +68,7 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
 
             TYPE_TICKET -> {
                 val view = LayoutInflater.from(mContext).inflate(R.layout.li_ticket, parent, false)
-                return ConcertViewHolder(view)
+                return TicketViewHolder(view)
             }
 
             TYPE_ALARM -> {
