@@ -61,6 +61,7 @@ class ArtistActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
     var artist : Artist = Artist()
     var dataList = arrayListOf<Concert>() // 뭔가 서버에서 artist에 넣어서 한번에 전달해 줄듯
 
+    //TODO OnItemClick Interface로 구현
     var onListItemClickListener : View.OnClickListener = View.OnClickListener {
         startActivity<ConcertActivity>()
     }
@@ -72,7 +73,6 @@ class ArtistActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
 
 //        val mAdapter = ConcertListAdapter(this, Concert.getDummyArray())
         val mAdapter = BasicListAdapter(this, Concert.getDummyArray())
-        mAdapter.onClickListener=onListItemClickListener
         recycler_view.adapter = mAdapter
 
 

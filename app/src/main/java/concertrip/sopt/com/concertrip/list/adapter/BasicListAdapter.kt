@@ -1,8 +1,10 @@
 package concertrip.sopt.com.concertrip.list.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.os.Handler
 import android.os.Message
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,7 @@ import concertrip.sopt.com.concertrip.activities.info.ArtistActivity
 import concertrip.sopt.com.concertrip.activities.info.ConcertActivity
 import concertrip.sopt.com.concertrip.interfaces.BasicListViewHolder
 import concertrip.sopt.com.concertrip.interfaces.ListData
+import concertrip.sopt.com.concertrip.interfaces.OnItemClick
 import concertrip.sopt.com.concertrip.list.viewholder.AlarmViewHolder
 import concertrip.sopt.com.concertrip.list.viewholder.ArtistThumbViewHolder
 import concertrip.sopt.com.concertrip.list.viewholder.ArtistViewHolder
@@ -26,18 +29,15 @@ import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_THEME
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.TYPE_TICKET
 import org.jetbrains.anko.startActivity
 
-class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListData>,var mode : Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListData>, var mode : Int, var listener : OnItemClick?) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    constructor(mContext: Context, dataList: ArrayList<out ListData>):this(mContext,dataList, MODE_BASIC)
+    constructor(mContext: Context,dataList: ArrayList<out ListData>,mode: Int) : this(mContext,dataList,mode,null)
+    constructor(mContext: Context,dataList: ArrayList<out ListData>,listener: OnItemClick?) : this(mContext,dataList, MODE_BASIC,listener)
+    constructor(mContext: Context, dataList: ArrayList<out ListData>):this(mContext,dataList, MODE_BASIC,null)
     companion object {
         val MODE_BASIC = 0
         val MODE_THUMB =1
     }
-
-    var onClickListener  : View.OnClickListener? = null
-
-    var handler : Handler?=null
-
 
     override fun getItemViewType(position: Int): Int {
         return dataList[position].getType()
@@ -97,23 +97,27 @@ class BasicListAdapter(var mContext : Context, var dataList: ArrayList<out ListD
             Glide.with(mContext).load(dataList[position].getImageUrl()).apply(RequestOptions.circleCropTransform())
                 .into(holder.getIvIcon())
         }
-        holder.itemView.setOnClickListener {
-            when (getItemViewType(position)) {
 
+        holder.itemView.setOnClickListener {
+
+            when (getItemViewType(position)) {
                 TYPE_ARTIST -> {
-                    mContext.startActivity<ArtistActivity>()
+                    val intent: Intent = Intent(mContext.applicationContext, ArtistActivity::class.java)
+                    intent.putExtra("idx",dataList[position].getIndex())
+                    mContext.startActivity(intent)
                 }
                 TYPE_CONCERT-> {
-                    mContext.startActivity<ConcertActivity>()
+
+                    val intent: Intent = Intent(mContext.applicationContext, ConcertActivity::class.java)
+                    intent.putExtra("idx",dataList[position].getIndex())
+                    mContext.startActivity(intent)
                 }
 
             }
         }
-//        basicHolder.getBtn()?.setOnClickListener(onClickListener)
         basicHolder.getBtn()?.setOnClickListener{
-            val msg  = Message()
-            msg.obj = dataList[position]
-            handler?.sendMessage(msg)
+            listener?.onItemClick(this,position)
+
         }
 
     }

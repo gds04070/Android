@@ -58,7 +58,7 @@ class TicketListFragment : Fragment() {
     }
 
     private fun initialUI(){
-        Adapter = BasicListAdapter(activity!!.applicationContext, dataList, BasicListAdapter.TYPE_TICKET)
+        Adapter = BasicListAdapter(activity!!.applicationContext, dataList)
     }
 
 
