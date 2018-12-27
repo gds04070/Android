@@ -73,9 +73,5 @@ fastlane/readme.md
 /build
 /captures
 .externalNativeBuild
-<<<<<<< HEAD
 
-secrets.xml
-=======
 app/src/main/java/concertrip/sopt/com/concertrip/utillity/Secret.kt
->>>>>>> upstream/develop
