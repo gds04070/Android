@@ -71,7 +71,6 @@ class LikedFragment : Fragment() ,View.OnClickListener{
     val STATE_THEME = 1
     val STATE_CONCERT = 2
 
-
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null

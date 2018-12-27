@@ -46,6 +46,10 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
 
     var dataListArtist = arrayListOf<Artist>()
     var dataListConcert = arrayListOf<Concert>()
+    var dataListTag = arrayListOf<String>()
+
+    lateinit var tagAdapter : HorizontalListAdapter
+    lateinit var dataAdapter : BasicListAdapter
 
     var onItemClickListener : View.OnClickListener = View.OnClickListener {
         startActivity<ArtistActivity>()
@@ -144,10 +148,16 @@ class ExplorerFragment : Fragment(), OnHorizontalItemClick {
         //TODO 1.adapter의 dataList값을 Foreach이용 업데이트
         //혹은 dataList통째로 바꾸기
 
-        val adapter = BasicListAdapter(activity!!.applicationContext, dataListArtist)
-        adapter.handler = HandlerClick(this)
+        dataAdapter.handler = HandlerClick(this)
+        val position = dataAdapter.itemCount
+        //TODO 2. adapter에 Listener 추가
 
 
+        //TODO 3. notifyAdapter
+
+        //dataList.forEach { dataAdapter.dataList.add() }
+
+        dataAdapter.notifyDataSetChanged()
     }
 
 
