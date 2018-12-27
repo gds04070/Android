@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import concertrip.sopt.com.concertrip.R
+import concertrip.sopt.com.concertrip.list.adapter.BasicListAdapter
+import concertrip.sopt.com.concertrip.model.Ticket
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +32,10 @@ class TicketListFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    var dataList = arrayListOf<Ticket>()
+
+    lateinit var Adapter : BasicListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,6 +56,11 @@ class TicketListFragment : Fragment() {
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
     }
+
+    private fun initialUI(){
+        Adapter = BasicListAdapter(activity!!.applicationContext, dataList)
+    }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

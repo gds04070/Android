@@ -11,9 +11,9 @@ package concertrip.sopt.com.concertrip.deprecated
 
 //class CalendarAdapter(var activity : Activity,var scheduleMap : HashMap<Int,ArrayList<Schedule>>) : BaseAdapter() {
 
-//    private val TYPE_DAY = 0
-//    private val TYPE_BLANK = 1
-//    private val TYPE_DATE = 2
+//    private val CALENDAR_TYPE_DAY = 0
+//    private val CALENDAT_TYPE_BLANK = 1
+//    private val CALENDAR_TYPE_DATE = 2
 //
 //    private val LOG_TAG : String = this::class.java.simpleName
 //
@@ -108,9 +108,9 @@ package concertrip.sopt.com.concertrip.deprecated
 //
 //    override fun getItemViewType(position: Int): Int {
 //        return when {
-//            dayList[position].toIntOrNull() != null -> TYPE_DATE
-//            dayList[position].isNotBlank() -> TYPE_DAY
-//            else -> TYPE_BLANK
+//            dayList[position].toIntOrNull() != null -> CALENDAR_TYPE_DATE
+//            dayList[position].isNotBlank() -> CALENDAR_TYPE_DAY
+//            else -> CALENDAT_TYPE_BLANK
 //        }
 ////            return super.getItemViewType(position)
 //    }
@@ -174,10 +174,10 @@ package concertrip.sopt.com.concertrip.deprecated
 //        val viewType = getItemViewType(position)
 //        var date : Int? = null
 //        val convertView = when(viewType){
-//           TYPE_DAY->{
+//           CALENDAR_TYPE_DAY->{
 //               inflater.inflate(R.layout.item_calendar_day,parent, false)
 //           }
-//            TYPE_DATE->{
+//            CALENDAR_TYPE_DATE->{
 //                date = getItem(position).toString().toInt()
 //                inflater.inflate(R.layout.item_calendar, parent, false)
 //            }

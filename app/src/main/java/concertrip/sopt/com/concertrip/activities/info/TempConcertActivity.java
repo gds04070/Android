@@ -15,11 +15,9 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 import concertrip.sopt.com.concertrip.R;
 import concertrip.sopt.com.concertrip.list.adapter.ArtistThumbListAdapter;
 import concertrip.sopt.com.concertrip.model.Artist;
+import concertrip.sopt.com.concertrip.utillity.Secret;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
-import static concertrip.sopt.com.concertrip.utillity.Constants.YOUTUBE_API_KEY;
 
 public class TempConcertActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
     private static final int RECOVERY_DIALOG_REQUEST = 1;
@@ -33,7 +31,7 @@ public class TempConcertActivity extends YouTubeBaseActivity implements YouTubeP
         RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setAdapter(mAdapter);
 
-        getYouTubePlayerProvider().initialize(YOUTUBE_API_KEY,this);
+        getYouTubePlayerProvider().initialize(Secret.YOUTUBE_API_KEY,this);
     }
 
     @Override
@@ -60,7 +58,7 @@ public class TempConcertActivity extends YouTubeBaseActivity implements YouTubeP
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RECOVERY_DIALOG_REQUEST) {
-            getYouTubePlayerProvider().initialize(YOUTUBE_API_KEY, this);
+            getYouTubePlayerProvider().initialize(Secret.YOUTUBE_API_KEY, this);
         }
     }
 }
