@@ -6,6 +6,6 @@ import android.widget.TextView
 import concertrip.sopt.com.concertrip.R
 
 
-class HorizontalVIewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+class HorizontalViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     val tvtext : TextView = itemView.findViewById(R.id.tv_text) as TextView
 }

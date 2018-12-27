@@ -11,7 +11,7 @@ import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.MyPageFrag
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.ticket.TicketFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.mypage.ticket.TicketListFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.search.SearchFragment
-import concertrip.sopt.com.concertrip.activity.main.fragment.liked.LikedFragment
+import concertrip.sopt.com.concertrip.activities.main.fragment.liked.LikedFragment
 import concertrip.sopt.com.concertrip.activities.main.fragment.search.ExplorerFragment
 import concertrip.sopt.com.concertrip.utillity.Constants
 import concertrip.sopt.com.concertrip.utillity.Constants.Companion.FRAGMENT_CALENDAR

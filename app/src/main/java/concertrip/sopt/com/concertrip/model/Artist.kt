@@ -1,6 +1,8 @@
 package concertrip.sopt.com.concertrip.model
 
+import android.provider.SyncStateContract
 import concertrip.sopt.com.concertrip.interfaces.ListData
+import concertrip.sopt.com.concertrip.utillity.Constants
 
 class Artist : ListData{
 
@@ -13,6 +15,8 @@ class Artist : ListData{
 
     fun getTag() : String ="#$genre #$genre"
 
+
+    override fun getType(): Int = Constants.TYPE_ARTIST
 
     override fun getIndex(): Int = idx
 
